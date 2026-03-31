@@ -1,12 +1,1264 @@
-local v0=game:GetService("Players");local v1=game:GetService("RunService");local v2=game:GetService("UserInputService");local v3=game:GetService("TweenService");local v4=game:GetService("VirtualInputManager");local v5=game:GetService("HttpService");local v6=game:GetService("StarterGui");local v7=v0.LocalPlayer;local v8=workspace.CurrentCamera;getgenv().UniversalHub={InfiniteJump=false,Aimbot=false,Flight=false,ESP=false,FlySpeed=130,MenuVisible=true,TeleportToPlayer=false,ExplodePlayer=false,LoopKill=false,TeamCheck=true,NoClip=false,SpeedBoost=false,SpeedValue=23 + 9 ,AntiAFK=false,AdminAlerts=true,AimbotEnabled=false,AimbotSmoothness=0.25 -0 ,AimbotFOV=1295 -(902 + 303) ,AimbotShowFOVCircle=true,AimbotPredictionStrength=0.12 -0 ,AimbotWallCheck=true,AimbotTargetPart="Head",AimbotActivation="Hold",Triggerbot=false,TriggerbotDelay=0.2,AimbotIgnoreDead=true,AimbotHealthThreshold=0};local v10=nil;local v11=nil;local v12=nil;local v13=nil;local function v14(v186,v187,v188) pcall(function() v6:SetCore("SendNotification",{Title=v186,Text=v187,Duration=v188 or (11 -6) });end);end local v15=Instance.new("ScreenGui");v15.ResetOnSpawn=false;v15.Parent=v7:WaitForChild("PlayerGui");local v18=Instance.new("Frame");v18.Size=UDim2.new(0 + 0 ,2310 -(1121 + 569) ,0,754 -(22 + 192) );v18.Position=UDim2.new(683.5 -(483 + 200) , -(1773 -(1404 + 59)),0.5 -0 , -(362 -92));v18.BackgroundColor3=Color3.fromRGB(0,0,765 -(468 + 297) );v18.BackgroundTransparency=0.08;v18.Active=true;v18.Draggable=true;v18.Visible=true;v18.Parent=v15;Instance.new("UICorner",v18).CornerRadius=UDim.new(562 -(334 + 228) ,16);local v28=Instance.new("Frame",v18);v28.Size=UDim2.new(1,13 -9 ,2 -1 ,4);v28.Position=UDim2.new(0 -0 , -(1 + 1),236 -(141 + 95) , -(2 + 0));v28.BackgroundColor3=Color3.new(0,0 -0 ,0);v28.BackgroundTransparency=0.7 -0 ;v28.ZIndex= -(1 + 0);Instance.new("UICorner",v28).CornerRadius=UDim.new(0 -0 ,16);local v35=Instance.new("Frame");v35.Size=UDim2.new(0 + 0 ,11 + 9 ,0,28 -8 );v35.Position=UDim2.new(1 + 0 , -(183 -(92 + 71)),1 + 0 , -(33 -13));v35.BackgroundColor3=Color3.fromRGB(865 -(574 + 191) ,100,120);v35.BackgroundTransparency=0.6 + 0 ;v35.Parent=v18;Instance.new("UICorner",v35).CornerRadius=UDim.new(0 -0 ,3 + 1 );local v42=false;local v43,v44,v45;v35.InputBegan:Connect(function(v189) if (v189.UserInputType==Enum.UserInputType.MouseButton1) then local v374=0;while true do if (v374==(850 -(254 + 595))) then v44=v18.Size;v45=v18.Position;break;end if (v374==(126 -(55 + 71))) then v42=true;v43=v189.Position;v374=1;end end end end);v2.InputChanged:Connect(function(v190) if (v42 and (v190.UserInputType==Enum.UserInputType.MouseMovement)) then local v375=v190.Position-v43 ;local v376=math.clamp(v44.X.Offset + v375.X ,526 -126 ,2790 -(573 + 1217) );local v377=math.clamp(v44.Y.Offset + v375.Y ,1107 -707 ,61 + 739 );v18.Size=UDim2.new(0 -0 ,v376,939 -(714 + 225) ,v377);v18.Position=UDim2.new(v45.X.Scale,v45.X.Offset,v45.Y.Scale,v45.Y.Offset);end end);v2.InputEnded:Connect(function(v191) if (v191.UserInputType==Enum.UserInputType.MouseButton1) then v42=false;end end);local v46=Instance.new("Frame");v46.Size=UDim2.new(2 -1 ,0,0 -0 ,10 + 75 );v46.BackgroundColor3=Color3.fromRGB(0,0 -0 ,806 -(118 + 688) );v46.BackgroundTransparency=48.2 -(25 + 23) ;v46.Parent=v18;Instance.new("UICorner",v46).CornerRadius=UDim.new(0 + 0 ,1902 -(927 + 959) );local v52=Instance.new("ImageLabel");v52.Size=UDim2.new(0 -0 ,792 -(16 + 716) ,0 -0 ,157 -(11 + 86) );v52.Position=UDim2.new(0 -0 ,300 -(175 + 110) ,0 -0 ,12.5);v52.BackgroundTransparency=1;v52.Image=v0:GetUserThumbnailAsync(v7.UserId,Enum.ThumbnailType.HeadShot,Enum.ThumbnailSize.Size420x420);v52.Parent=v46;Instance.new("UICorner",v52).CornerRadius=UDim.new(4 -3 ,1796 -(503 + 1293) );local v59=Instance.new("TextLabel");v59.Size=UDim2.new(0.6,0 -0 ,0 + 0 ,30);v59.Position=UDim2.new(0,90,1061 -(810 + 251) ,11 + 4 );v59.BackgroundTransparency=1 + 0 ;v59.Text=v7.Name;v59.TextColor3=Color3.new(1 + 0 ,1,534 -(43 + 490) );v59.TextSize=20;v59.Font=Enum.Font.GothamBold;v59.TextXAlignment=Enum.TextXAlignment.Left;v59.Parent=v46;local v72=Instance.new("TextLabel");v72.Size=UDim2.new(733.6 -(711 + 22) ,0,0 -0 ,884 -(240 + 619) );v72.Position=UDim2.new(0,90,0 + 0 ,76 -28 );v72.BackgroundTransparency=1;v72.Text="Online";v72.TextColor3=Color3.fromRGB(0 + 0 ,1944 -(1344 + 400) ,505 -(255 + 150) );v72.TextSize=12 + 2 ;v72.Font=Enum.Font.Gotham;v72.TextXAlignment=Enum.TextXAlignment.Left;v72.Parent=v46;local v83=Instance.new("TextButton");v83.Size=UDim2.new(0 + 0 ,162 -124 ,0 -0 ,38);v83.Position=UDim2.new(1, -(1787 -(404 + 1335)),0,429 -(183 + 223) );v83.BackgroundColor3=Color3.fromRGB(85 -15 ,47 + 23 ,90);v83.Text="−";v83.TextColor3=Color3.new(1 + 0 ,338 -(10 + 327) ,1 + 0 );v83.TextSize=362 -(118 + 220) ;v83.Font=Enum.Font.GothamBold;v83.Parent=v46;Instance.new("UICorner",v83).CornerRadius=UDim.new(0,10);v83.MouseButton1Click:Connect(function() local v192=0 + 0 ;while true do if (v192==(449 -(108 + 341))) then getgenv().UniversalHub.MenuVisible=false;v18.Visible=false;break;end end end);local v93=Instance.new("Frame");v93.Size=UDim2.new(1 + 0 ,0 -0 ,1493 -(711 + 782) ,91 -43 );v93.Position=UDim2.new(469 -(270 + 199) ,0 + 0 ,1819 -(580 + 1239) ,252 -167 );v93.BackgroundTransparency=1 + 0 ;v93.Parent=v18;local v98={};local v99={};local v100={"Main","Aimbot","ESP","Trolling","Utility","Support"};for v193,v194 in ipairs(v100) do local v195=1167 -(645 + 522) ;local v196;local v197;local v198;while true do if (v195==(1796 -(1010 + 780))) then v198=Instance.new("UIListLayout");v198.Padding=UDim.new(0,12);v198.SortOrder=Enum.SortOrder.LayoutOrder;v195=7 + 0 ;end if (v195==(23 -18)) then local v401=0 -0 ;while true do if ((1837 -(1045 + 791))==v401) then v197.Parent=v18;v195=6;break;end if (v401==(0 -0)) then v197.ScrollBarThickness=8 -2 ;v197.Visible=v193==(506 -(351 + 154)) ;v401=1575 -(1281 + 293) ;end end end if (v195==(267 -(28 + 238))) then v196.BackgroundColor3=Color3.fromRGB(77 -42 ,1594 -(1381 + 178) ,42);v196.Text=v194;v196.TextColor3=Color3.new(1 + 0 ,1 + 0 ,1 + 0 );v195=6 -4 ;end if (v195==7) then v198.Parent=v197;v99[v193]=v197;break;end if (v195==4) then v197.Size=UDim2.new(1, -(11 + 9),471 -(381 + 89) , -145);v197.Position=UDim2.new(0 + 0 ,7 + 3 ,0 -0 ,1291 -(1074 + 82) );v197.BackgroundTransparency=1 -0 ;v195=5;end if ((1784 -(214 + 1570))==v195) then local v410=1455 -(990 + 465) ;while true do if (v410==0) then v196=Instance.new("TextButton");v196.Size=UDim2.new((1 + 0)/ #v100 ,0 + 0 ,1,0 + 0 );v410=1;end if (v410==(3 -2)) then v196.Position=UDim2.new((v193-1)/ #v100 ,1726 -(1668 + 58) ,0,626 -(512 + 114) );v195=1;break;end end end if (v195==(5 -3)) then v196.TextSize=32 -16 ;v196.Font=Enum.Font.GothamSemibold;v196.Parent=v93;v195=10 -7 ;end if (v195==(2 + 1)) then Instance.new("UICorner",v196).CornerRadius=UDim.new(0,2 + 6 );v98[v193]=v196;v197=Instance.new("ScrollingFrame");v195=4 + 0 ;end end end local function v101(v199) for v359,v360 in ipairs(v99) do local v361=0;local v362;while true do if (v361==(0 -0)) then v362=0;while true do if ((1994 -(109 + 1885))==v362) then v360.Visible=v359==v199 ;v98[v359].BackgroundColor3=((v359==v199) and Color3.fromRGB(0,1609 -(1269 + 200) ,255)) or Color3.fromRGB(67 -32 ,35,857 -(98 + 717) ) ;break;end end break;end end end end for v200,v201 in ipairs(v98) do v201.MouseButton1Click:Connect(function() v101(v200);end);end local function v102(v202,v203,v204,v205,v206) local v207=826 -(802 + 24) ;local v208;local v209;local v210;local v211;while true do if (v207==(15 -6)) then return v210;end if (v207==0) then v208=Instance.new("Frame");v208.Size=UDim2.new(1 -0 ,0,0,9 + 46 );v208.BackgroundColor3=Color3.fromRGB(35,35,42);v207=1;end if (v207==(6 + 1)) then v210.Font=Enum.Font.GothamBold;v210.Parent=v208;Instance.new("UICorner",v210).CornerRadius=UDim.new(0 + 0 ,8);v207=2 + 6 ;end if (v207==4) then v209.Font=Enum.Font.Gotham;v209.Parent=v208;v210=Instance.new("TextButton");v207=13 -8 ;end if (3==v207) then v209.TextColor3=Color3.new(1,3 -2 ,1 + 0 );v209.TextXAlignment=Enum.TextXAlignment.Left;v209.TextSize=17;v207=4;end if (v207==(1 + 0)) then v208.Parent=v202;Instance.new("UICorner",v208).CornerRadius=UDim.new(0 + 0 ,12);v209=Instance.new("TextLabel");v207=2;end if (v207==(5 + 1)) then v210.Text=(v204 and "ON") or "OFF" ;v210.TextColor3=Color3.new(1,1 + 0 ,1);v210.TextSize=17;v207=1440 -(797 + 636) ;end if (5==v207) then v210.Size=UDim2.new(0 -0 ,1719 -(1427 + 192) ,0,40);v210.Position=UDim2.new(0.74 + 0 ,0 -0 ,0.5 + 0 , -(10 + 10));v210.BackgroundColor3=(v204 and Color3.fromRGB(581 -(192 + 134) ,1381 -(316 + 960) ,180)) or Color3.fromRGB(128,0 + 0 ,99 + 29 ) ;v207=6 + 0 ;end if (v207==(30 -22)) then local v438=551 -(83 + 468) ;while true do if (v438==(1806 -(1202 + 604))) then v211=v204;v210.MouseButton1Click:Connect(function() local v596=0 -0 ;while true do if (v596==(0 -0)) then v211= not v211;v210.Text=(v211 and "ON") or "OFF" ;v596=1;end if (v596==1) then v210.BackgroundColor3=(v211 and Color3.fromRGB(255,105,180)) or Color3.fromRGB(354 -226 ,0,453 -(45 + 280) ) ;v205(v211);break;end end end);v438=1;end if (v438==1) then if v206 then v10=v210;end v207=9 + 0 ;break;end end end if (v207==2) then v209.Size=UDim2.new(0.68 + 0 ,0,1 + 0 ,0 + 0 );v209.BackgroundTransparency=1 + 0 ;v209.Text="  "   .. v203 ;v207=5 -2 ;end end end local function v103(v212,v213,v214,v215,v216,v217) local v218=1911 -(340 + 1571) ;local v219;local v220;local v221;while true do local v363=0;while true do if (v363==3) then if (v218==(2 + 1)) then v220.Font=Enum.Font.Gotham;v220.Parent=v219;v221=Instance.new("TextBox");v221.Size=UDim2.new(1772 -(1733 + 39) ,120,0,40);v218=10 -6 ;end break;end if (v363==1) then if (v218==(1039 -(125 + 909))) then v221.TextSize=1964 -(1096 + 852) ;v221.Font=Enum.Font.Gotham;v221.Parent=v219;Instance.new("UICorner",v221).CornerRadius=UDim.new(0 + 0 ,11 -3 );v218=6 + 0 ;end if (v218==(518 -(409 + 103))) then v221.FocusLost:Connect(function() local v597=236 -(46 + 190) ;local v598;while true do if (v597==0) then v598=tonumber(v221.Text);if v598 then local v648=95 -(51 + 44) ;while true do if ((0 + 0)==v648) then v598=math.clamp(v598,v214,v215);v217(v598);v648=1;end if (v648==1) then v220.Text="  "   .. v213   .. ": "   .. v598 ;v221.Text=tostring(v598);break;end end else v221.Text=tostring(v216);end break;end end end);return v221;end v363=1319 -(1114 + 203) ;end if (v363==(728 -(228 + 498))) then if (v218==(0 + 0)) then v219=Instance.new("Frame");v219.Size=UDim2.new(1 + 0 ,663 -(174 + 489) ,0,169 -104 );v219.BackgroundColor3=Color3.fromRGB(1940 -(830 + 1075) ,35,566 -(303 + 221) );v219.Parent=v212;v218=1;end if (v218==(1273 -(231 + 1038))) then v221.Position=UDim2.new(0.75,0,0.5, -(17 + 3));v221.BackgroundColor3=Color3.fromRGB(1187 -(171 + 991) ,25,123 -93 );v221.Text=tostring(v216);v221.TextColor3=Color3.new(2 -1 ,2 -1 ,1 + 0 );v218=5;end v363=10 -7 ;end if (v363==0) then if (v218==(5 -3)) then v220.Text="  "   .. v213   .. ": "   .. v216 ;v220.TextColor3=Color3.new(1 -0 ,3 -2 ,1);v220.TextXAlignment=Enum.TextXAlignment.Left;v220.TextSize=1265 -(111 + 1137) ;v218=161 -(91 + 67) ;end if (v218==(2 -1)) then Instance.new("UICorner",v219).CornerRadius=UDim.new(0 + 0 ,535 -(423 + 100) );v220=Instance.new("TextLabel");v220.Size=UDim2.new(0.5 + 0 ,0 -0 ,1 + 0 ,0);v220.BackgroundTransparency=1;v218=773 -(326 + 445) ;end v363=1;end end end end local function v104(v222,v223,v224,v225,v226) local v227=0 -0 ;local v228;local v229;local v230;local v231;while true do if (v227==1) then v228.Parent=v222;Instance.new("UICorner",v228).CornerRadius=UDim.new(0,12);v229=Instance.new("TextLabel");v227=4 -2 ;end if (v227==(11 -6)) then local v444=711 -(530 + 181) ;while true do if (v444==(881 -(614 + 267))) then v230.Size=UDim2.new(32 -(19 + 13) ,195 -75 ,0 -0 ,114 -74 );v230.Position=UDim2.new(0.75 + 0 ,0 -0 ,0.5 -0 , -20);v444=1;end if (v444==(1813 -(1293 + 519))) then v230.BackgroundColor3=Color3.fromRGB(51 -26 ,25,78 -48 );v227=11 -5 ;break;end end end if (v227==(34 -26)) then local v445=0 -0 ;while true do if (v445==(1 + 0)) then v230.MouseButton1Click:Connect(function() local v599=0;local v600;while true do if (v599==(0 + 0)) then v231=(v231% #v224) + (2 -1) ;v600=v224[v231];v599=1 + 0 ;end if (v599==(1 + 0)) then v230.Text=v600;v226(v600);break;end end end);v227=6 + 3 ;break;end if (v445==(1096 -(709 + 387))) then v231=1859 -(673 + 1185) ;for v601,v602 in ipairs(v224) do if (v602==v225) then v231=v601;end end v445=2 -1 ;end end end if (v227==(0 -0)) then v228=Instance.new("Frame");v228.Size=UDim2.new(1 -0 ,0,0 + 0 ,42 + 13 );v228.BackgroundColor3=Color3.fromRGB(35,35,56 -14 );v227=1;end if (v227==6) then v230.Text=v225;v230.TextColor3=Color3.new(1,1 + 0 ,1 -0 );v230.TextSize=30 -14 ;v227=7;end if (v227==2) then v229.Size=UDim2.new(1880.5 -(446 + 1434) ,0,1284 -(1040 + 243) ,0);v229.BackgroundTransparency=2 -1 ;v229.Text="  "   .. v223 ;v227=1850 -(559 + 1288) ;end if (v227==(1940 -(609 + 1322))) then return v230;end if (v227==(461 -(13 + 441))) then local v454=0 -0 ;while true do if (v454==0) then v230.Font=Enum.Font.Gotham;v230.Parent=v228;v454=2 -1 ;end if (v454==(4 -3)) then Instance.new("UICorner",v230).CornerRadius=UDim.new(0 + 0 ,8);v227=8;break;end end end if ((14 -10)==v227) then v229.Font=Enum.Font.Gotham;v229.Parent=v228;v230=Instance.new("TextButton");v227=2 + 3 ;end if (v227==(2 + 1)) then v229.TextColor3=Color3.new(2 -1 ,1 + 0 ,1 -0 );v229.TextXAlignment=Enum.TextXAlignment.Left;v229.TextSize=12 + 5 ;v227=3 + 1 ;end end end local v105=v99[1];v102(v105,"🦘 Infinite Jump",false,function(v232) getgenv().UniversalHub.InfiniteJump=v232;end);v102(v105,"✈️ Flight",false,function(v234) getgenv().UniversalHub.Flight=v234;end,true);v102(v105,"🌀 NoClip",false,function(v236) getgenv().UniversalHub.NoClip=v236;end);v102(v105,"⚡ Speed Boost",false,function(v238) getgenv().UniversalHub.SpeedBoost=v238;end);v102(v105,"💤 Anti-AFK",false,function(v240) getgenv().UniversalHub.AntiAFK=v240;end);v103(v105,"✈️ Fly Speed",15 + 5 ,500,getgenv().UniversalHub.FlySpeed,function(v242) getgenv().UniversalHub.FlySpeed=v242;end);v103(v105,"🏃 Walk Speed",14 + 2 ,245 + 5 ,getgenv().UniversalHub.SpeedValue,function(v244) getgenv().UniversalHub.SpeedValue=v244;end);local v106=v99[2];v103(v106,"🔧 Smoothness (0.05-0.8)",0.05,433.8 -(153 + 280) ,getgenv().UniversalHub.AimbotSmoothness,function(v246) getgenv().UniversalHub.AimbotSmoothness=v246;end);v103(v106,"🎯 FOV (degrees)",0,1039 -679 ,getgenv().UniversalHub.AimbotFOV,function(v248) local v249=0;while true do if (v249==0) then getgenv().UniversalHub.AimbotFOV=v248;if (v13 and getgenv().UniversalHub.AimbotShowFOVCircle) then v13.Radius=(v8.ViewportSize.X/(2 + 0)) * (v248/(36 + 54)) ;end break;end end end);v102(v106,"🔘 Show FOV Circle",getgenv().UniversalHub.AimbotShowFOVCircle,function(v250) local v251=0 + 0 ;local v252;while true do if (v251==(0 + 0)) then v252=0 + 0 ;while true do if (v252==0) then getgenv().UniversalHub.AimbotShowFOVCircle=v250;if v13 then v13.Visible=v250;end break;end end break;end end end);v103(v106,"📈 Prediction Strength",0,0.3,getgenv().UniversalHub.AimbotPredictionStrength,function(v253) getgenv().UniversalHub.AimbotPredictionStrength=v253;end);v102(v106,"🧱 Wall Check",getgenv().UniversalHub.AimbotWallCheck,function(v255) getgenv().UniversalHub.AimbotWallCheck=v255;end);local v107={"Head","UpperTorso","HumanoidRootPart","LowerTorso","ClosestToCrosshair"};v104(v106,"🎯 Target Part",v107,getgenv().UniversalHub.AimbotTargetPart,function(v257) getgenv().UniversalHub.AimbotTargetPart=v257;end);local v108={"Hold","Toggle"};v104(v106,"🖱️ Activation Mode",v108,getgenv().UniversalHub.AimbotActivation,function(v259) local v260=0 + 0 ;while true do if (v260==(0 -0)) then getgenv().UniversalHub.AimbotActivation=v259;if (v259=="Toggle") then local v516=1049 -(572 + 477) ;local v517;while true do if (v516==(0 + 0)) then v517=0 + 0 ;while true do if (v517==(1 + 0)) then if v12 then local v662=86 -(84 + 2) ;while true do if (v662==0) then v12.Text="OFF";v12.BackgroundColor3=Color3.fromRGB(210 -82 ,0 + 0 ,970 -(497 + 345) );break;end end end break;end if (v517==0) then if aimbotHoldConnection then local v663=0 + 0 ;while true do if (v663==(0 + 0)) then aimbotHoldConnection:Disconnect();aimbotHoldConnection=nil;break;end end end getgenv().UniversalHub.AimbotEnabled=false;v517=1334 -(605 + 728) ;end end break;end end else getgenv().UniversalHub.AimbotEnabled=false;end break;end end end);local v109=Instance.new("Frame");v109.Size=UDim2.new(1 + 0 ,0 -0 ,0 + 0 ,203 -148 );v109.BackgroundColor3=Color3.fromRGB(32 + 3 ,96 -61 ,32 + 10 );v109.Parent=v106;Instance.new("UICorner",v109).CornerRadius=UDim.new(489 -(457 + 32) ,6 + 6 );local v114=Instance.new("TextLabel");v114.Size=UDim2.new(1402.5 -(832 + 570) ,0 + 0 ,1 + 0 ,0 -0 );v114.BackgroundTransparency=1;v114.Text="  Toggle Aimbot (Z key)";v114.TextColor3=Color3.new(1,1,1 + 0 );v114.TextXAlignment=Enum.TextXAlignment.Left;v114.TextSize=813 -(588 + 208) ;v114.Font=Enum.Font.Gotham;v114.Parent=v109;v12=Instance.new("TextButton");v12.Size=UDim2.new(0,100,0 -0 ,1840 -(884 + 916) );v12.Position=UDim2.new(0.74,0,0.5 -0 , -20);v12.BackgroundColor3=Color3.fromRGB(75 + 53 ,0,781 -(232 + 421) );v12.Text="OFF";v12.TextColor3=Color3.new(1890 -(1569 + 320) ,1 + 0 ,1 + 0 );v12.TextSize=57 -40 ;v12.Font=Enum.Font.GothamBold;v12.Parent=v109;Instance.new("UICorner",v12).CornerRadius=UDim.new(0,613 -(316 + 289) );v12.MouseButton1Click:Connect(function() local v261=0 -0 ;local v262;while true do if (v261==(1 + 1)) then v14("Aimbot",(v262 and "Enabled") or "Disabled" ,1455 -(666 + 787) );break;end if (v261==(426 -(360 + 65))) then v12.Text=(v262 and "ON") or "OFF" ;v12.BackgroundColor3=(v262 and Color3.fromRGB(239 + 16 ,359 -(79 + 175) ,283 -103 )) or Color3.fromRGB(128,0 + 0 ,392 -264 ) ;v261=3 -1 ;end if (v261==(899 -(503 + 396))) then getgenv().UniversalHub.AimbotEnabled= not getgenv().UniversalHub.AimbotEnabled;v262=getgenv().UniversalHub.AimbotEnabled;v261=182 -(92 + 89) ;end end end);v102(v106,"👥 Team Check (avoid teammates)",true,function(v263) getgenv().UniversalHub.TeamCheck=v263;end);v102(v106,"🔫 Triggerbot",false,function(v265) getgenv().UniversalHub.Triggerbot=v265;end);v103(v106,"⏱️ Triggerbot Delay (s)",0.05,2,getgenv().UniversalHub.TriggerbotDelay,function(v267) getgenv().UniversalHub.TriggerbotDelay=v267;end);v102(v106,"💀 Ignore Dead Players",getgenv().UniversalHub.AimbotIgnoreDead,function(v269) getgenv().UniversalHub.AimbotIgnoreDead=v269;end);v103(v106,"❤️ Health Threshold (0-100)",0 -0 ,52 + 48 ,getgenv().UniversalHub.AimbotHealthThreshold,function(v271) getgenv().UniversalHub.AimbotHealthThreshold=v271;end);local v132=v99[2 + 1 ];v11=v102(v132,"👁️ ESP (Nametag + Red Outline)",false,function(v273) local v274=0 -0 ;while true do if (v274==0) then getgenv().UniversalHub.ESP=v273;if  not v273 then local v519=0;local v520;while true do if (v519==(0 + 0)) then v520=0 -0 ;while true do if (v520==(1 + 0)) then for v650,v651 in pairs(espObjects) do if v651 then v651:Destroy();end end espObjects={};break;end if (v520==0) then for v652,v653 in pairs(espHighlights) do if v653 then v653:Destroy();end end espHighlights={};v520=1;end end break;end end end break;end end end);local v133=v99[2 + 2 ];v102(v133,"🌀 Teleport to Player (click target)",false,function(v275) getgenv().UniversalHub.TeleportToPlayer=v275;end);v102(v133,"💥 Explode Player (click target)",false,function(v277) getgenv().UniversalHub.ExplodePlayer=v277;end);v102(v133,"🔁 Loop Kill (click target)",false,function(v279) getgenv().UniversalHub.LoopKill=v279;end);local v134=v99[5];v102(v134,"🔔 Admin Alerts",true,function(v281) local v282=0;while true do if (v282==0) then getgenv().UniversalHub.AdminAlerts=v281;v14("Admin Alerts",(v281 and "Enabled") or "Disabled" ,3);break;end end end);local v135=v99[17 -11 ];local v136=Instance.new("Frame",v135);v136.Size=UDim2.new(1 + 0 ,0 -0 ,1244 -(485 + 759) ,370 -210 );v136.BackgroundColor3=Color3.fromRGB(1224 -(442 + 747) ,35,1177 -(832 + 303) );Instance.new("UICorner",v136).CornerRadius=UDim.new(946 -(88 + 858) ,4 + 8 );local v140=Instance.new("TextLabel",v136);v140.Size=UDim2.new(1, -20,1 + 0 , -20);v140.Position=UDim2.new(0 + 0 ,799 -(766 + 23) ,0 -0 ,10);v140.BackgroundTransparency=1 -0 ;v140.Text="📢 Support\n\nDiscord Username: hbkvxncent\nDiscord Server: https://discord.globalstats.xyz\n\nThank you for using globalstats.xyz!";v140.TextColor3=Color3.new(2 -1 ,3 -2 ,1074 -(1036 + 37) );v140.TextSize=11 + 4 ;v140.Font=Enum.Font.Gotham;v140.TextWrapped=true;v140.TextXAlignment=Enum.TextXAlignment.Left;local v150=Instance.new("TextButton");v150.Size=UDim2.new(0 -0 ,48 + 12 ,0,1540 -(641 + 839) );v150.Position=UDim2.new(913 -(910 + 3) ,20,0.5 -0 , -30);v150.BackgroundColor3=Color3.fromRGB(1684 -(1466 + 218) ,65 + 75 ,1403 -(556 + 592) );v150.Text="🚔";v150.TextSize=28;v150.TextColor3=Color3.new(1,1,1);v150.Parent=v15;Instance.new("UICorner",v150).CornerRadius=UDim.new(1 + 0 ,808 -(329 + 479) );v150.MouseButton1Click:Connect(function() local v283=854 -(174 + 680) ;local v284;while true do if (v283==0) then v284=0 -0 ;while true do if ((0 -0)==v284) then getgenv().UniversalHub.MenuVisible= not getgenv().UniversalHub.MenuVisible;v18.Visible=getgenv().UniversalHub.MenuVisible;break;end end break;end end end);v2.InputBegan:Connect(function(v285,v286) local v287=0;while true do if (v287==(0 + 0)) then if v286 then return;end if (v285.KeyCode==Enum.KeyCode.K) then local v521=0;local v522;while true do if (v521==0) then v522=0;while true do if (v522==(739 -(396 + 343))) then getgenv().UniversalHub.MenuVisible= not getgenv().UniversalHub.MenuVisible;v18.Visible=getgenv().UniversalHub.MenuVisible;break;end end break;end end end v287=1;end if (v287==(1 + 0)) then if (v285.KeyCode==Enum.KeyCode.F) then local v523=1477 -(29 + 1448) ;local v524;while true do if (v523==(1389 -(135 + 1254))) then v524=0 -0 ;while true do if (v524==(0 -0)) then getgenv().UniversalHub.Flight= not getgenv().UniversalHub.Flight;if v10 then local v664=0 + 0 ;local v665;while true do if (v664==1) then v10.BackgroundColor3=(v665 and Color3.fromRGB(255,1632 -(389 + 1138) ,180)) or Color3.fromRGB(702 -(102 + 472) ,0,121 + 7 ) ;break;end if (v664==(0 + 0)) then local v693=0 + 0 ;while true do if (v693==(1546 -(320 + 1225))) then v664=1 -0 ;break;end if (v693==(0 + 0)) then v665=getgenv().UniversalHub.Flight;v10.Text=(v665 and "ON") or "OFF" ;v693=1465 -(157 + 1307) ;end end end end end break;end end break;end end end if ((v285.KeyCode==Enum.KeyCode.Z) and (getgenv().UniversalHub.AimbotActivation=="Toggle")) then local v525=1859 -(821 + 1038) ;while true do if (v525==0) then getgenv().UniversalHub.AimbotEnabled= not getgenv().UniversalHub.AimbotEnabled;if v12 then local v634=0 -0 ;while true do if (v634==0) then v12.Text=(getgenv().UniversalHub.AimbotEnabled and "ON") or "OFF" ;v12.BackgroundColor3=(getgenv().UniversalHub.AimbotEnabled and Color3.fromRGB(28 + 227 ,105,319 -139 )) or Color3.fromRGB(48 + 80 ,0 -0 ,128) ;break;end end end v525=1027 -(834 + 192) ;end if (v525==1) then v14("Aimbot",(getgenv().UniversalHub.AimbotEnabled and "Enabled") or "Disabled" ,2);break;end end end break;end end end);v2.JumpRequest:Connect(function() if (getgenv().UniversalHub.InfiniteJump and v7.Character and v7.Character:FindFirstChild("Humanoid")) then v7.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping);end end);local function v159() local v288=v7.Character;if  not v288 then return;end local v289=getgenv().UniversalHub.NoClip;for v364,v365 in ipairs(v288:GetDescendants()) do if v365:IsA("BasePart") then v365.CanCollide= not v289;end end end v7.CharacterAdded:Connect(function() local v290=0;local v291;while true do if (v290==(0 + 0)) then v291=0;while true do if (v291==0) then task.wait(0.5);v159();break;end end break;end end end);v1.Heartbeat:Connect(function() v159();end);local function v160() local v292=v7.Character;if  not v292 then return;end local v293=v292:FindFirstChild("Humanoid");if v293 then if getgenv().UniversalHub.SpeedBoost then v293.WalkSpeed=getgenv().UniversalHub.SpeedValue;elseif (v293.WalkSpeed~=16) then v293.WalkSpeed=5 + 11 ;end end end v1.RenderStepped:Connect(function() v160();end);v7.CharacterAdded:Connect(function() local v294=0 + 0 ;while true do if (v294==(0 -0)) then task.wait(304.5 -(300 + 4) );v160();break;end end end);local v161=nil;local function v162() local v295=0 + 0 ;while true do if ((0 -0)==v295) then if v161 then v161:Disconnect();end if  not getgenv().UniversalHub.AntiAFK then return;end v295=363 -(112 + 250) ;end if (v295==(1 + 0)) then v161=v1.Heartbeat:Connect(function() local v504=0 -0 ;local v505;while true do if (v504==0) then v505=0 + 0 ;while true do if (v505==0) then if  not getgenv().UniversalHub.AntiAFK then local v654=0 + 0 ;while true do if (1==v654) then return;end if (v654==(0 + 0)) then if v161 then v161:Disconnect();end v161=nil;v654=1 + 0 ;end end end if ((tick()%(45 + 15))<0.1) then local v655=1414 -(1001 + 413) ;while true do if (v655==1) then v4:SendKeyEvent(false,Enum.KeyCode.W,false,nil);break;end if (v655==0) then v4:SendKeyEvent(true,Enum.KeyCode.W,false,nil);task.wait(0.1 -0 );v655=883 -(244 + 638) ;end end end break;end end break;end end end);break;end end end local function v163() if getgenv().UniversalHub.AntiAFK then if  not v161 then v162();end elseif v161 then local v506=693 -(627 + 66) ;while true do if (v506==(0 -0)) then v161:Disconnect();v161=nil;break;end end end end v1.Heartbeat:Connect(v163);local function v164(v296) local v297=602 -(512 + 90) ;local v298;local v299;local v300;while true do if (v297==(1907 -(1665 + 241))) then v300=nil;while true do if (v298==(718 -(373 + 344))) then v300={"kick","ban","admin","owner","moderator","you have been kicked","you have been banned"};for v603,v604 in ipairs(v300) do if string.find(v299,v604) then v14("⚠️ Admin Alert","Possible admin action detected: "   .. v296 ,8);break;end end break;end if (v298==(0 + 0)) then if  not getgenv().UniversalHub.AdminAlerts then return;end v299=string.lower(v296);v298=1;end end break;end if (v297==(0 -0)) then v298=0 + 0 ;v299=nil;v297=1237 -(298 + 938) ;end end end local function v165(v301) if (v301==v7) then v14("❌ You have been kicked/banned!","The server removed you.",1264 -(233 + 1026) );end end local function v166() pcall(function() local v366=game:GetService("TextChatService");if v366 then local v470=1666 -(636 + 1030) ;local v471;while true do if (v470==0) then v471=v366:WaitForChild("TextChannels"):WaitForChild("RBXGeneral");v471.MessageReceived:Connect(function(v605) if v605.Text then v164(v605.Text);end end);break;end end else local v472=game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Chat");if v472 then local v526=0 + 0 ;local v527;while true do if (v526==0) then v527=v472:FindFirstChild("Frame");if v527 then v527.DescendantAdded:Connect(function(v641) if (v641:IsA("TextLabel") and (v641.Name=="ChatMessage")) then v164(v641.Text);end end);end break;end end end end end);end v166();v0.PlayerRemoving:Connect(v165);local v167,v168=nil,nil;local v169=false;v1.Heartbeat:Connect(function() local v302=0 + 0 ;local v303;local v304;local v305;while true do if (v302==(0 + 0)) then local v473=0 + 0 ;while true do if (v473==(221 -(55 + 166))) then v303=v7.Character;if  not v303 then return;end v473=1;end if (v473==(1 + 0)) then v302=1 + 0 ;break;end end end if (v302==(3 -2)) then v304=v303:FindFirstChild("HumanoidRootPart");v305=v303:FindFirstChild("Humanoid");v302=2;end if (v302==2) then if (getgenv().UniversalHub.Flight and v304) then local v528=0;local v529;local v530;local v531;while true do if (v528==(300 -(36 + 261))) then local v612=0;while true do if (v612==(1 -0)) then if (v531.Magnitude<0.1) then v167.Velocity=Vector3.new(0,1368.5 -(34 + 1334) ,0);else v167.Velocity=v531.Unit * getgenv().UniversalHub.FlySpeed ;end v528=2 + 2 ;break;end if (v612==(0 + 0)) then if v2:IsKeyDown(Enum.KeyCode.Space) then v531+=Vector3.new(0,1,1283 -(1035 + 248) ) end if v2:IsKeyDown(Enum.KeyCode.LeftControl) then v531-=Vector3.new(0,22 -(20 + 1) ,0) end v612=1;end end end if (v528==(1 + 0)) then local v613=0;while true do if (v613==0) then if  not v167 then local v670=319 -(134 + 185) ;while true do if (v670==(1133 -(549 + 584))) then v167=Instance.new("BodyVelocity");v168=Instance.new("BodyGyro");v670=1;end if (v670==(686 -(314 + 371))) then v167.MaxForce=Vector3.new(3432955 -2432955 ,1000000,1000968 -(478 + 490) );v168.MaxTorque=Vector3.new(52974 + 47026 ,101172 -(786 + 386) ,323899 -223899 );v670=2;end if ((1381 -(1055 + 324))==v670) then v167.Parent=v530;v168.Parent=v530;break;end end end v531=Vector3.new();v613=1341 -(1093 + 247) ;end if (v613==1) then if v2:IsKeyDown(Enum.KeyCode.W) then v531+=v8.CFrame.LookVector end v528=2 + 0 ;break;end end end if (v528==(1 + 1)) then local v614=0 -0 ;while true do if ((0 -0)==v614) then if v2:IsKeyDown(Enum.KeyCode.S) then v531-=v8.CFrame.LookVector end if v2:IsKeyDown(Enum.KeyCode.A) then v531-=v8.CFrame.RightVector end v614=2 -1 ;end if (v614==(2 -1)) then if v2:IsKeyDown(Enum.KeyCode.D) then v531+=v8.CFrame.RightVector end v528=2 + 1 ;break;end end end if (v528==(0 -0)) then if v305 then v305.PlatformStand=true;end v529=v305 and v305.SeatPart and v305.SeatPart.Parent ;v530=(v529 and (v529:FindFirstChild("Engine") or v529.PrimaryPart)) or v304 ;v528=3 -2 ;end if (v528==(4 + 0)) then v168.CFrame=v8.CFrame;v169=true;break;end end elseif v169 then local v606=0;while true do if (v606==(2 -1)) then v167,v168=nil,nil;if v305 then v305.PlatformStand=false;end v606=690 -(364 + 324) ;end if (v606==2) then v169=false;break;end if (v606==(0 -0)) then if v167 then v167:Destroy();end if v168 then v168:Destroy();end v606=2 -1 ;end end end break;end end end);local v170=nil;local v171=0 + 0 ;local function v172() local v306=0 -0 ;local v307;while true do if (v306==(1 -0)) then return v307;end if (v306==(0 -0)) then v307={};for v507,v508 in ipairs(v0:GetPlayers()) do if ((v508~=v7) and v508.Character) then local v577=0;local v578;while true do if (v577==(1268 -(1249 + 19))) then if getgenv().UniversalHub.TeamCheck then local v642=v7.Team;local v643=v508.Team;if (v642 and v643 and (v642==v643)) then continue;end end v578=v508.Character:FindFirstChild("Humanoid");v577=1;end if (v577==1) then if v578 then local v644=0;while true do if (v644==0) then if (getgenv().UniversalHub.AimbotIgnoreDead and (v578.Health<=(0 + 0))) then continue;end if (v578.Health<=getgenv().UniversalHub.AimbotHealthThreshold) then continue;end break;end end else continue;end table.insert(v307,v508);break;end end end end v306=3 -2 ;end end end local function v173(v308,v309) local v310=1086 -(686 + 400) ;local v311;while true do if (v310==(1 + 0)) then if (v309=="Head") then return v311:FindFirstChild("Head");elseif (v309=="UpperTorso") then return v311:FindFirstChild("UpperTorso");elseif (v309=="HumanoidRootPart") then return v311:FindFirstChild("HumanoidRootPart");elseif (v309=="LowerTorso") then return v311:FindFirstChild("LowerTorso");elseif (v309=="ClosestToCrosshair") then local v671=nil;local v672=math.huge;local v673=Vector2.new(v8.ViewportSize.X/(231 -(73 + 156)) ,v8.ViewportSize.Y/2 );local v674={"Head","UpperTorso","HumanoidRootPart","LowerTorso"};for v679,v680 in ipairs(v674) do local v681=v311:FindFirstChild(v680);if v681 then local v698=0;local v699;local v700;while true do if (0==v698) then v699,v700=v8:WorldToScreenPoint(v681.Position);if v700 then local v708=0;local v709;while true do if (v708==(0 + 0)) then v709=(Vector2.new(v699.X,v699.Y) -v673).Magnitude;if (v709<v672) then local v716=0;while true do if (v716==(0 -0)) then v672=v709;v671=v681;break;end end end break;end end end break;end end end end return v671;else return v311:FindFirstChild("Head");end break;end if ((470 -(224 + 246))==v310) then v311=v308.Character;if  not v311 then return nil;end v310=1 -0 ;end end end local function v174(v312) local v313=0 -0 ;local v314;local v315;local v316;local v317;while true do local v367=0;while true do if ((1 + 0)==v367) then if (v313==(0 + 0)) then v314=v8.CFrame.Position;v315=(v312-v314).Unit;v313=1 + 0 ;end break;end if (v367==(0 -0)) then if (v313==(3 -2)) then local v581=513 -(203 + 310) ;while true do if (v581==(1993 -(1238 + 755))) then v316=v8.CFrame.LookVector;v317=math.deg(math.acos(v316:Dot(v315)));v581=1 + 0 ;end if (v581==(1535 -(709 + 825))) then v313=2;break;end end end if (v313==(3 -1)) then return v317<=getgenv().UniversalHub.AimbotFOV ;end v367=1;end end end end local function v175(v318) if  not getgenv().UniversalHub.AimbotWallCheck then return true;end local v319=RaycastParams.new();v319.FilterType=Enum.RaycastFilterType.Blacklist;v319.FilterDescendantsInstances={v7.Character};local v323=workspace:Raycast(v8.CFrame.Position,v318-v8.CFrame.Position ,v319);if (v323 and v323.Instance) then local v380=v323.Instance:FindFirstAncestorWhichIsA("Model");if (v380 and v380:IsA("Model") and v380:FindFirstChild("Humanoid")) then local v509=864 -(196 + 668) ;local v510;while true do if ((0 -0)==v509) then v510=v0:GetPlayerFromCharacter(v380);if v510 then local v625=0 -0 ;local v626;while true do if (v625==1) then if v626 then return true;end break;end if (v625==(833 -(171 + 662))) then v626=nil;for v675,v676 in ipairs(v172()) do if (v676.Character==v380) then v626=v676;break;end end v625=1;end end end break;end end end return false;end return true;end local function v176() if  not getgenv().UniversalHub.AimbotEnabled then return;end local v324=v172();local v325=nil;local v326=math.huge;for v368,v369 in ipairs(v324) do local v370=93 -(4 + 89) ;local v371;while true do if (v370==(0 -0)) then v371=v173(v369,getgenv().UniversalHub.AimbotTargetPart);if v371 then local v582=0;local v583;local v584;local v585;while true do if (v582==(1 + 0)) then v585=nil;while true do if (v583==(4 -3)) then if  not v175(v584) then continue;end v585=(v584-v8.CFrame.Position).Magnitude;v583=1 + 1 ;end if (v583==(1488 -(35 + 1451))) then if (v585<v326) then local v682=1453 -(28 + 1425) ;while true do if (v682==(1993 -(941 + 1052))) then v326=v585;v325=v371;break;end end end break;end if (v583==(0 + 0)) then local v658=1514 -(822 + 692) ;while true do if (v658==(1 -0)) then v583=1 + 0 ;break;end if (v658==(297 -(45 + 252))) then v584=v371.Position;if  not v174(v584) then continue;end v658=1 + 0 ;end end end end break;end if (v582==(0 + 0)) then v583=0 -0 ;v584=nil;v582=434 -(114 + 319) ;end end end break;end end end if v325 then local v381=0 -0 ;local v382;local v383;local v384;local v385;local v386;while true do if (v381==(2 -0)) then v386=getgenv().UniversalHub.AimbotSmoothness;v8.CFrame=v8.CFrame:Lerp(v385,v386);break;end if (v381==0) then v382=v325.Position;v383=v325.AssemblyLinearVelocity;v381=1 + 0 ;end if (v381==(1 -0)) then v384=v382 + (v383 * getgenv().UniversalHub.AimbotPredictionStrength) ;v385=CFrame.lookAt(v8.CFrame.Position,v384);v381=3 -1 ;end end end end local function v177() if  not getgenv().UniversalHub.Triggerbot then return;end if  not getgenv().UniversalHub.AimbotEnabled then return;end local v327=tick();if ((v327-v171)<getgenv().UniversalHub.TriggerbotDelay) then return;end local v328=RaycastParams.new();v328.FilterType=Enum.RaycastFilterType.Blacklist;v328.FilterDescendantsInstances={v7.Character};local v332=v8.ViewportSize;local v333=Vector2.new(v332.X/(1208 -(741 + 465)) ,v332.Y/(467 -(170 + 295)) );local v334=v8:ViewportPointToRay(v333.X,v333.Y);local v335=workspace:Raycast(v334.Origin,v334.Direction * 1000 ,v328);if (v335 and v335.Instance) then local v387=0;local v388;while true do if (v387==(0 + 0)) then v388=v335.Instance:FindFirstAncestorWhichIsA("Model");if (v388 and v388:FindFirstChild("Humanoid")) then local v607=0 + 0 ;local v608;while true do if (v607==0) then v608=v0:GetPlayerFromCharacter(v388);if (v608 and (v608~=v7)) then local v659=0 -0 ;local v660;while true do if (v659==0) then v660=0 + 0 ;while true do if (1==v660) then v4:SendMouseButtonEvent(Enum.UserInputType.MouseButton1,false,nil,false);v171=v327;break;end if (v660==(0 + 0)) then v4:SendMouseButtonEvent(Enum.UserInputType.MouseButton1,true,nil,false);task.wait();v660=1 + 0 ;end end break;end end end break;end end end break;end end end end v2.InputBegan:Connect(function(v336) if ((getgenv().UniversalHub.AimbotActivation=="Hold") and (v336.UserInputType==Enum.UserInputType.MouseButton2)) then if v170 then v170:Disconnect();end getgenv().UniversalHub.AimbotEnabled=true;v170=v1.RenderStepped:Connect(function() local v475=1230 -(957 + 273) ;local v476;while true do if (v475==0) then v476=0 + 0 ;while true do if ((1 + 0)==v476) then v177();break;end if (v476==(0 -0)) then if  not getgenv().UniversalHub.AimbotEnabled then local v645=0 -0 ;while true do if (v645==(0 -0)) then local v683=0;while true do if (0==v683) then if v170 then v170:Disconnect();v170=nil;end return;end end end end end v176();v476=4 -3 ;end end break;end end end);end end);v2.InputEnded:Connect(function(v337) if ((getgenv().UniversalHub.AimbotActivation=="Hold") and (v337.UserInputType==Enum.UserInputType.MouseButton2)) then local v390=1780 -(389 + 1391) ;local v391;while true do if (v390==(0 + 0)) then v391=0 + 0 ;while true do if (v391==(0 -0)) then if v170 then local v636=951 -(783 + 168) ;while true do if (v636==(0 -0)) then v170:Disconnect();v170=nil;break;end end end getgenv().UniversalHub.AimbotEnabled=false;break;end end break;end end end end);local v178=v1.RenderStepped:Connect(function() if ((getgenv().UniversalHub.AimbotActivation=="Toggle") and getgenv().UniversalHub.AimbotEnabled) then local v392=0 + 0 ;while true do if (v392==(311 -(309 + 2))) then v176();v177();break;end end end end);local function v179() if  not Drawing then warn("Drawing library not available, FOV circle disabled");return;end v13=Drawing.new("Circle");v13.Visible=getgenv().UniversalHub.AimbotShowFOVCircle;v13.Color=Color3.fromRGB(783 -528 ,1212 -(1090 + 122) ,0 + 0 );v13.Thickness=1;v13.Filled=false;v13.NumSides=64;v13.Transparency=1;v13.Radius=(v8.ViewportSize.X/(6 -4)) * (getgenv().UniversalHub.AimbotFOV/(62 + 28)) ;v13.Position=Vector2.new(v8.ViewportSize.X/(1120 -(628 + 490)) ,v8.ViewportSize.Y/2 );v1.RenderStepped:Connect(function() if v13 then local v477=0;while true do if (v477==0) then v13.Position=Vector2.new(v8.ViewportSize.X/(1 + 1) ,v8.ViewportSize.Y/(4 -2) );v13.Radius=(v8.ViewportSize.X/(9 -7)) * (getgenv().UniversalHub.AimbotFOV/90) ;v477=1;end if (v477==(775 -(431 + 343))) then v13.Visible=getgenv().UniversalHub.AimbotShowFOVCircle;break;end end end end);end task.wait(1 -0 );v179();local v180={};local v181={};local function v182(v347) local v348=0;local v349;local v350;local v351;local v352;while true do if (v348==1) then if  not v350 then return;end v349.Adornee=v350;v349.Size=UDim2.new(0,520 -340 ,0 + 0 ,45);v348=2;end if (v348==(1 + 3)) then v351.TextColor3=v347.TeamColor.Color;v351.TextStrokeTransparency=0.4;v351.TextSize=1710 -(556 + 1139) ;v348=5;end if (v348==(21 -(6 + 9))) then v352.FillColor=Color3.new(1 + 0 ,0 + 0 ,0);v352.FillTransparency=0.7;v352.OutlineColor=Color3.new(1,0,169 -(28 + 141) );v348=3 + 4 ;end if ((8 -1)==v348) then v352.OutlineTransparency=0.2 + 0 ;v352.Adornee=v347.Character;v352.Parent=v347.Character;v348=1325 -(486 + 831) ;end if ((20 -12)==v348) then v181[v347]=v352;break;end if (3==v348) then v351=Instance.new("TextLabel",v349);v351.Size=UDim2.new(3 -2 ,0 + 0 ,3 -2 ,0);v351.BackgroundTransparency=1;v348=4;end if (v348==(1263 -(668 + 595))) then if (v347==v7) then return;end v349=Instance.new("BillboardGui");v350=v347.Character and (v347.Character:FindFirstChild("Head") or v347.Character:FindFirstChild("HumanoidRootPart")) ;v348=1 + 0 ;end if (v348==(2 + 3)) then v351.Font=Enum.Font.GothamBold;v180[v347]=v349;v352=Instance.new("Highlight");v348=16 -10 ;end if (v348==2) then v349.StudsOffset=Vector3.new(290 -(23 + 267) ,1947 -(1129 + 815) ,387 -(371 + 16) );v349.AlwaysOnTop=true;v349.Parent=v8;v348=1753 -(1326 + 424) ;end end end local function v183() for v372,v373 in ipairs(v0:GetPlayers()) do if v373.Character then local v500=0 -0 ;while true do if (v500==(3 -2)) then if (v181[v373] and (v181[v373].Adornee~=v373.Character)) then v181[v373].Adornee=v373.Character;end break;end if (0==v500) then if ( not v180[v373] and getgenv().UniversalHub.ESP) then v182(v373);end if v180[v373] then local v620=0;local v621;while true do if (v620==(118 -(88 + 30))) then v621=v373.Character:FindFirstChild("Head") or v373.Character:FindFirstChild("HumanoidRootPart") ;if v621 then local v677=(v621.Position-v8.CFrame.Position).Magnitude;v180[v373].TextLabel.Text=v373.Name   .. "\n"   .. math.floor(v677)   .. "s" ;end break;end end end v500=772 -(720 + 51) ;end end else local v501=0 -0 ;while true do if (0==v501) then if v180[v373] then local v622=0;while true do if (0==v622) then v180[v373]:Destroy();v180[v373]=nil;break;end end end if v181[v373] then local v623=1776 -(421 + 1355) ;while true do if ((0 -0)==v623) then v181[v373]:Destroy();v181[v373]=nil;break;end end end break;end end end end end v0.PlayerAdded:Connect(function(v353) v353.CharacterAdded:Connect(function() if getgenv().UniversalHub.ESP then v182(v353);end end);end);v1.RenderStepped:Connect(function() if getgenv().UniversalHub.ESP then v183();else local v393=0 + 0 ;while true do if (v393==(1083 -(286 + 797))) then for v590,v591 in pairs(v180) do if v591 then v591:Destroy();end end v180={};v393=1;end if (v393==1) then for v592,v593 in pairs(v181) do if v593 then v593:Destroy();end end v181={};break;end end end end);local v184=nil;local function v185() local v354=0 -0 ;local v355;local v356;local v357;while true do if (v354==(1 -0)) then v357=nil;while true do local v511=439 -(397 + 42) ;while true do if (v511==(0 + 0)) then if (v355==(800 -(24 + 776))) then local v627=0 -0 ;while true do if (v627==(786 -(222 + 563))) then v355=1 -0 ;break;end if (v627==(0 + 0)) then v356=v7:GetMouse();v357=v356.Target;v627=191 -(23 + 167) ;end end end if (v355==(1799 -(690 + 1108))) then local v628=0;while true do if (v628==(0 + 0)) then if (v357 and v357.Parent and v357.Parent:FindFirstChild("Humanoid")) then return v357.Parent;end return nil;end end end break;end end end break;end if (v354==0) then v355=0 + 0 ;v356=nil;v354=849 -(40 + 808) ;end end end v2.InputBegan:Connect(function(v358) if (v358.UserInputType==Enum.UserInputType.MouseButton1) then local v394=0 + 0 ;local v395;while true do if (v394==0) then v395=v185();if v395 then local v609=v0:GetPlayerFromCharacter(v395);if (v609 and (v609~=v7)) then local v629=0 -0 ;while true do if (v629==(0 + 0)) then v184=v609;if getgenv().UniversalHub.TeleportToPlayer then local v684=0 + 0 ;local v685;local v686;while true do if (v684==(1 + 0)) then if (v685 and v686) then v685.CFrame=v686.CFrame + Vector3.new(571 -(47 + 524) ,2 + 0 ,0) ;end break;end if ((0 -0)==v684) then v685=v7.Character and v7.Character:FindFirstChild("HumanoidRootPart") ;v686=v395:FindFirstChild("HumanoidRootPart");v684=1 -0 ;end end elseif getgenv().UniversalHub.ExplodePlayer then local v701=v395:FindFirstChild("HumanoidRootPart");if v701 then local v702=0 -0 ;local v703;while true do if (v702==(1727 -(1165 + 561))) then v703.Parent=workspace;v703.Hit:Connect(function(v714) if (v714.Parent==v395) then v714:BreakJoints();end end);break;end if ((0 + 0)==v702) then v703=Instance.new("Explosion");v703.Position=v701.Position;v702=3 -2 ;end end end elseif getgenv().UniversalHub.LoopKill then local v704;v704=v1.Heartbeat:Connect(function() if (v395 and v395.Parent and v395:FindFirstChild("Humanoid")) then v395.Humanoid.Health=0;else v704:Disconnect();end end);end break;end end end end break;end end end end);print("✅ globalstats.xyz | Universal Script loaded with enhanced aimbot!");print("Press K → Menu | Press F → Flight | Press Z → Toggle Aimbot (in toggle mode)");print("Hold Right Mouse → Aimbot (hold mode) | Aimbot settings in GUI");print("Minimize button in top bar → hides menu | Resize by dragging bottom-right corner");
--- ⚠️ WARNING: integrity protected!
---[[
- .____                  ________ ___.    _____                           __                
- |    |    __ _______   \_____  \\_ |___/ ____\_ __  ______ ____ _____ _/  |_  ___________ 
- |    |   |  |  \__  \   /   |   \| __ \   __\  |  \/  ___// ___\\__  \\   __\/  _ \_  __ \
- |    |___|  |  // __ \_/    |    \ \_\ \  | |  |  /\___ \\  \___ / __ \|  | (  <_> )  | \/
- |_______ \____/(____  /\_______  /___  /__| |____//____  >\___  >____  /__|  \____/|__|   
-         \/          \/         \/    \/                \/     \/     \/                   
-          \_Welcome to LuaObfuscator.com   (Alpha 0.10.9) ~  Much Love, Ferib 
+-- globalstats.xyz | Universal Script (Enhanced)
+-- K = Open/Close Menu | F = Toggle Flight
+-- Aimbot: Hold Right Mouse Button
+-- ESP includes nametag + red outline
+-- Modern GUI with user avatar and username
+-- NEW: Black background, toggle buttons: purple (off) / pink (on)
+-- FIXED: Speed boost now works correctly
+-- REMOVED: Teleport to coordinates
+-- ADDED: Admin alerts toggle now shows a toast notification
 
-]]--
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local UserInputService = game:GetService("UserInputService")
+local TweenService = game:GetService("TweenService")
+local VirtualInput = game:GetService("VirtualInputManager")
+local HttpService = game:GetService("HttpService")
+local StarterGui = game:GetService("StarterGui")
+local LocalPlayer = Players.LocalPlayer
+local Camera = workspace.CurrentCamera
+
+-- ========== CONFIGURATION ==========
+getgenv().UniversalHub = {
+    InfiniteJump = false,
+    Aimbot = false,
+    Flight = false,
+    FlySpeed = 130,
+    MenuVisible = true,
+    -- Trolling features
+    TeleportToPlayer = false,
+    ExplodePlayer = false,
+    LoopKill = false,
+    -- Team check for aimbot
+    TeamCheck = true,
+    -- New features
+    NoClip = false,
+    SpeedBoost = false,
+    SpeedValue = 32,
+    AntiAFK = false,
+    TriggerBot = false,
+    AimbotFOV = 90,
+    FOVCircle = true,
+    AdminAlerts = true,
+    -- FOV circle color
+    FOVCircleColor = Color3.fromRGB(128, 0, 128), -- Purple
+    -- ESP
+    ESP = false,
+    ESPMode = "Highlight", -- StickFigure support removed for simplicity
+    ESPMaxDistance = math.huge -- Infinite distance for ESP rendering
+}
+
+local flightToggleBtn = nil
+local espToggleBtn = nil
+
+-- Player list & teleport section storage
+local playerListEntries = {}
+local playerListContainer = nil
+local selectedPlayer = nil
+local lastPlayerListUpdate = 0
+local updatingPlayerList = false
+
+-- ========== UTILITY FUNCTIONS ==========
+local function Notify(Title, Text, Duration)
+    pcall(function()
+        StarterGui:SetCore("SendNotification", {
+            Title = Title,
+            Text = Text,
+            Duration = Duration or 5
+        })
+    end)
+end
+
+local function getPlayerHealth(plr)
+    if plr and plr.Character then
+        local humanoid = plr.Character:FindFirstChildOfClass("Humanoid")
+        if humanoid then
+            return math.floor(humanoid.Health), math.floor(humanoid.MaxHealth)
+        end
+    end
+    return 0, 0
+end
+
+local function teleportToPlayer(plr)
+    if not plr or not plr.Character or not LocalPlayer.Character then 
+        print("[DEBUG] Teleport failed: Missing player or character")
+        return false 
+    end
+    local targetRoot = plr.Character:FindFirstChild("HumanoidRootPart")
+    local myRoot = LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if not targetRoot or not myRoot then
+        print("[DEBUG] Teleport failed: Missing HumanoidRootPart for", plr.Name, "or local player")
+        return false
+    end
+    print("[DEBUG] Teleporting to", plr.Name, "from", myRoot.Position, "to", targetRoot.Position)
+    myRoot.CFrame = targetRoot.CFrame + Vector3.new(0, 2, 0)
+    print("[DEBUG] Teleport successful to", plr.Name)
+    return true
+end
+
+-- ========== MODERN UI CREATION ==========
+local ScreenGui = Instance.new("ScreenGui")
+ScreenGui.ResetOnSpawn = false
+ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+
+-- FOV circle overlay (aimbot)
+local fovGui = Instance.new("Frame")
+fovGui.Name = "FOVCircle"
+fovGui.AnchorPoint = Vector2.new(0.5, 0.5)
+fovGui.Position = UDim2.new(0.5, 0, 0.5, 0)
+fovGui.Size = UDim2.new(0, 0, 0, 0)
+fovGui.BackgroundTransparency = 1
+fovGui.BorderSizePixel = 0
+fovGui.Visible = false
+fovGui.Parent = ScreenGui
+
+local fovStroke = Instance.new("UIStroke")
+fovStroke.Thickness = 2
+fovStroke.Color = getgenv().UniversalHub.FOVCircleColor
+fovStroke.Transparency = 0.3
+fovStroke.Parent = fovGui
+
+local fovCorner = Instance.new("UICorner")
+fovCorner.CornerRadius = UDim.new(1, 0)
+fovCorner.Parent = fovGui
+
+local function updateFOVCircle()
+    if not getgenv().UniversalHub.FOVCircle then
+        fovGui.Visible = false
+        return
+    end
+
+    local cam = Camera
+    local fov = getgenv().UniversalHub.AimbotFOV or 90
+    fov = math.clamp(fov, 1, 360) -- Support values down to 1 degree and up to full circle
+
+    local screenWidth = cam.ViewportSize.X
+    local circleRadius = math.tan(math.rad(fov / 2)) / math.tan(math.rad(cam.FieldOfView / 2)) * (screenWidth / 2)
+
+    fovGui.Visible = true
+    fovGui.Size = UDim2.new(0, circleRadius * 2, 0, circleRadius * 2)
+    fovGui.Position = UDim2.new(0.5, 0, 0.5, 0)
+    fovStroke.Color = getgenv().UniversalHub.FOVCircleColor
+end
+
+-- ESP system
+local espHighlights = {}
+local espNametags = {}
+local espStickFigures = {}
+
+local function createNametag(player)
+    if espNametags[player] then return end
+    local char = player.Character
+    if not char then return end
+    local head = char:FindFirstChild("Head")
+    if not head then return end
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = head
+    billboard.Size = UDim2.new(0, 200, 0, 50)
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Parent = ScreenGui
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = player.Name
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.TextSize = 16
+    textLabel.Font = Enum.Font.GothamBold
+    textLabel.TextStrokeTransparency = 0.5
+    textLabel.Parent = billboard
+
+    espNametags[player] = billboard
+end
+
+local function createHighlight(player)
+    if espHighlights[player] then return end
+    local char = player.Character
+    if not char then return end
+
+    local highlight = Instance.new("Highlight")
+    highlight.Adornee = char
+    highlight.FillColor = Color3.new(1, 0, 0)
+    highlight.OutlineColor = Color3.new(1, 0, 0)
+    highlight.FillTransparency = 0.5
+    highlight.OutlineTransparency = 0
+    highlight.Parent = char
+
+    espHighlights[player] = highlight
+end
+
+local function createStickFigure(player)
+    if espStickFigures[player] then return end
+    local char = player.Character
+    if not char then return end
+
+    -- Check if Drawing API is available (requires exploit environment)
+    if not Drawing then
+        Notify("Stick Figure ESP", "Stick Figure mode requires an exploit with Drawing API support. Switching to Highlight mode.", 5)
+        getgenv().UniversalHub.ESPMode = "Highlight"
+        return
+    end
+
+    local parts = {
+        Head = char:FindFirstChild("Head"),
+        HumanoidRootPart = char:FindFirstChild("HumanoidRootPart"),
+        LeftArm = char:FindFirstChild("Left Arm") or char:FindFirstChild("LeftUpperArm"),
+        RightArm = char:FindFirstChild("Right Arm") or char:FindFirstChild("RightUpperArm"),
+        LeftLeg = char:FindFirstChild("Left Leg") or char:FindFirstChild("LeftUpperLeg"),
+        RightLeg = char:FindFirstChild("Right Leg") or char:FindFirstChild("RightUpperLeg"),
+        Torso = char:FindFirstChild("Torso") or char:FindFirstChild("UpperTorso")
+    }
+
+    local lines = {}
+    -- Body
+    if parts.Torso and parts.HumanoidRootPart then
+        local line = Drawing.new("Line")
+        line.Color = Color3.new(1, 0, 0)
+        line.Thickness = 2
+        line.Transparency = 1
+        lines[#lines+1] = line
+    end
+    -- Arms
+    if parts.Torso and parts.LeftArm then
+        local line = Drawing.new("Line")
+        line.Color = Color3.new(1, 0, 0)
+        line.Thickness = 2
+        line.Transparency = 1
+        lines[#lines+1] = line
+    end
+    if parts.Torso and parts.RightArm then
+        local line = Drawing.new("Line")
+        line.Color = Color3.new(1, 0, 0)
+        line.Thickness = 2
+        line.Transparency = 1
+        lines[#lines+1] = line
+    end
+    -- Legs
+    if parts.HumanoidRootPart and parts.LeftLeg then
+        local line = Drawing.new("Line")
+        line.Color = Color3.new(1, 0, 0)
+        line.Thickness = 2
+        line.Transparency = 1
+        lines[#lines+1] = line
+    end
+    if parts.HumanoidRootPart and parts.RightLeg then
+        local line = Drawing.new("Line")
+        line.Color = Color3.new(1, 0, 0)
+        line.Thickness = 2
+        line.Transparency = 1
+        lines[#lines+1] = line
+    end
+    -- Head
+    if parts.Torso and parts.Head then
+        local line = Drawing.new("Line")
+        line.Color = Color3.new(1, 0, 0)
+        line.Thickness = 2
+        line.Transparency = 1
+        lines[#lines+1] = line
+    end
+
+    espStickFigures[player] = {parts = parts, lines = lines}
+end
+
+local function updateESP()
+    if not getgenv().UniversalHub.ESP then
+        -- Remove all ESP
+        for player, billboard in pairs(espNametags) do
+            billboard:Destroy()
+        end
+        espNametags = {}
+        for player, highlight in pairs(espHighlights) do
+            highlight:Destroy()
+        end
+        espHighlights = {}
+        for player, data in pairs(espStickFigures) do
+            for _, line in ipairs(data.lines) do
+                line:Remove()
+            end
+        end
+        espStickFigures = {}
+        return
+    end
+
+    local localRoot = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+    if not localRoot then return end
+
+    for _, player in ipairs(Players:GetPlayers()) do
+        if player ~= LocalPlayer and player.Character then
+            local playerRoot = player.Character:FindFirstChild("HumanoidRootPart")
+            if not playerRoot or (playerRoot.Position - localRoot.Position).Magnitude > getgenv().UniversalHub.ESPMaxDistance then
+                -- Remove ESP if out of range or no root
+                if espNametags[player] then
+                    espNametags[player]:Destroy()
+                    espNametags[player] = nil
+                end
+                if espHighlights[player] then
+                    espHighlights[player]:Destroy()
+                    espHighlights[player] = nil
+                end
+                if espStickFigures[player] then
+                    for _, line in ipairs(espStickFigures[player].lines) do
+                        line:Remove()
+                    end
+                    espStickFigures[player] = nil
+                end
+            else
+                createNametag(player)
+                if getgenv().UniversalHub.ESPMode == "Highlight" then
+                    createHighlight(player)
+                    -- Remove stick figure if exists
+                    if espStickFigures[player] then
+                        for _, line in ipairs(espStickFigures[player].lines) do
+                            line:Remove()
+                        end
+                        espStickFigures[player] = nil
+                    end
+                elseif getgenv().UniversalHub.ESPMode == "StickFigure" then
+                    createStickFigure(player)
+                    -- Remove highlight if exists
+                    if espHighlights[player] then
+                        espHighlights[player]:Destroy()
+                        espHighlights[player] = nil
+                    end
+                end
+            end
+        end
+    end
+end
+
+local function updateStickFigurePositions()
+    for player, data in pairs(espStickFigures) do
+        if player.Character then
+            local parts = data.parts
+            local lines = data.lines
+            local index = 1
+            -- Body
+            if parts.Torso and parts.HumanoidRootPart and lines[index] then
+                local pos1 = Camera:WorldToViewportPoint(parts.Torso.Position)
+                local pos2 = Camera:WorldToViewportPoint(parts.HumanoidRootPart.Position)
+                lines[index].From = Vector2.new(pos1.X, pos1.Y)
+                lines[index].To = Vector2.new(pos2.X, pos2.Y)
+                lines[index].Visible = true
+                index = index + 1
+            end
+            -- Left Arm
+            if parts.Torso and parts.LeftArm and lines[index] then
+                local pos1 = Camera:WorldToViewportPoint(parts.Torso.Position)
+                local pos2 = Camera:WorldToViewportPoint(parts.LeftArm.Position)
+                lines[index].From = Vector2.new(pos1.X, pos1.Y)
+                lines[index].To = Vector2.new(pos2.X, pos2.Y)
+                lines[index].Visible = true
+                index = index + 1
+            end
+            -- Right Arm
+            if parts.Torso and parts.RightArm and lines[index] then
+                local pos1 = Camera:WorldToViewportPoint(parts.Torso.Position)
+                local pos2 = Camera:WorldToViewportPoint(parts.RightArm.Position)
+                lines[index].From = Vector2.new(pos1.X, pos1.Y)
+                lines[index].To = Vector2.new(pos2.X, pos2.Y)
+                lines[index].Visible = true
+                index = index + 1
+            end
+            -- Left Leg
+            if parts.HumanoidRootPart and parts.LeftLeg and lines[index] then
+                local pos1 = Camera:WorldToViewportPoint(parts.HumanoidRootPart.Position)
+                local pos2 = Camera:WorldToViewportPoint(parts.LeftLeg.Position)
+                lines[index].From = Vector2.new(pos1.X, pos1.Y)
+                lines[index].To = Vector2.new(pos2.X, pos2.Y)
+                lines[index].Visible = true
+                index = index + 1
+            end
+            -- Right Leg
+            if parts.HumanoidRootPart and parts.RightLeg and lines[index] then
+                local pos1 = Camera:WorldToViewportPoint(parts.HumanoidRootPart.Position)
+                local pos2 = Camera:WorldToViewportPoint(parts.RightLeg.Position)
+                lines[index].From = Vector2.new(pos1.X, pos1.Y)
+                lines[index].To = Vector2.new(pos2.X, pos2.Y)
+                lines[index].Visible = true
+                index = index + 1
+            end
+            -- Head
+            if parts.Torso and parts.Head and lines[index] then
+                local pos1 = Camera:WorldToViewportPoint(parts.Torso.Position)
+                local pos2 = Camera:WorldToViewportPoint(parts.Head.Position)
+                lines[index].From = Vector2.new(pos1.X, pos1.Y)
+                lines[index].To = Vector2.new(pos2.X, pos2.Y)
+                lines[index].Visible = true
+                index = index + 1
+            end
+        else
+            -- Hide lines if character gone
+            for _, line in ipairs(data.lines) do
+                line.Visible = false
+            end
+        end
+    end
+end
+
+-- Hub teleport anchor (tap mode)
+local hubAnchorCFrame = nil
+local function updateHubAnchor()
+    local char = LocalPlayer.Character
+    if char then
+        local root = char:FindFirstChild("HumanoidRootPart")
+        if root then
+            hubAnchorCFrame = root.CFrame
+            return
+        end
+    end
+    hubAnchorCFrame = workspace:FindFirstChild("SpawnLocation") and workspace.SpawnLocation.CFrame or hubAnchorCFrame
+end
+
+LocalPlayer.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    updateHubAnchor()
+end)
+
+if LocalPlayer.Character then
+    updateHubAnchor()
+end
+
+-- Main frame (resizable) – background black
+local MainFrame = Instance.new("Frame")
+MainFrame.Size = UDim2.new(0, 620, 0, 540)
+MainFrame.Position = UDim2.new(0.5, -310, 0.5, -270)
+MainFrame.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- black
+MainFrame.BackgroundTransparency = 0.08
+MainFrame.Active = true
+MainFrame.Draggable = true
+MainFrame.Visible = true
+MainFrame.Parent = ScreenGui
+Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 16)
+
+-- Shadow
+local shadow = Instance.new("Frame", MainFrame)
+shadow.Size = UDim2.new(1, 4, 1, 4)
+shadow.Position = UDim2.new(0, -2, 0, -2)
+shadow.BackgroundColor3 = Color3.new(0,0,0)
+shadow.BackgroundTransparency = 0.7
+shadow.ZIndex = -1
+Instance.new("UICorner", shadow).CornerRadius = UDim.new(0, 16)
+
+-- Resize grip (bottom-right corner)
+local ResizeGrip = Instance.new("Frame")
+ResizeGrip.Size = UDim2.new(0, 20, 0, 20)
+ResizeGrip.Position = UDim2.new(1, -20, 1, -20)
+ResizeGrip.BackgroundColor3 = Color3.fromRGB(100, 100, 120)
+ResizeGrip.BackgroundTransparency = 0.6
+ResizeGrip.Parent = MainFrame
+Instance.new("UICorner", ResizeGrip).CornerRadius = UDim.new(0, 4)
+
+local isResizing = false
+local startMouse, startSize, startPos
+
+ResizeGrip.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        isResizing = true
+        startMouse = input.Position
+        startSize = MainFrame.Size
+        startPos = MainFrame.Position
+    end
+end)
+
+UserInputService.InputChanged:Connect(function(input)
+    if isResizing and input.UserInputType == Enum.UserInputType.MouseMovement then
+        local delta = input.Position - startMouse
+        local newWidth = math.clamp(startSize.X.Offset + delta.X, 400, 1000)
+        local newHeight = math.clamp(startSize.Y.Offset + delta.Y, 400, 800)
+        MainFrame.Size = UDim2.new(0, newWidth, 0, newHeight)
+        -- Adjust position to keep top-left corner fixed
+        MainFrame.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset, startPos.Y.Scale, startPos.Y.Offset)
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        isResizing = false
+    end
+end)
+
+-- Top bar – black
+local TopBar = Instance.new("Frame")
+TopBar.Size = UDim2.new(1, 0, 0, 85)
+TopBar.BackgroundColor3 = Color3.fromRGB(0, 0, 0) -- black
+TopBar.BackgroundTransparency = 0.2
+TopBar.Parent = MainFrame
+Instance.new("UICorner", TopBar).CornerRadius = UDim.new(0, 16)
+
+-- Avatar image
+local avatarImage = Instance.new("ImageLabel")
+avatarImage.Size = UDim2.new(0, 60, 0, 60)
+avatarImage.Position = UDim2.new(0, 15, 0, 12.5)
+avatarImage.BackgroundTransparency = 1
+avatarImage.Image = Players:GetUserThumbnailAsync(LocalPlayer.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+avatarImage.Parent = TopBar
+Instance.new("UICorner", avatarImage).CornerRadius = UDim.new(1, 0)
+
+-- Username and status
+local userNameLabel = Instance.new("TextLabel")
+userNameLabel.Size = UDim2.new(0.6, 0, 0, 30)
+userNameLabel.Position = UDim2.new(0, 90, 0, 15)
+userNameLabel.BackgroundTransparency = 1
+userNameLabel.Text = LocalPlayer.Name
+userNameLabel.TextColor3 = Color3.new(1,1,1)
+userNameLabel.TextSize = 20
+userNameLabel.Font = Enum.Font.GothamBold
+userNameLabel.TextXAlignment = Enum.TextXAlignment.Left
+userNameLabel.Parent = TopBar
+
+local statusLabel = Instance.new("TextLabel")
+statusLabel.Size = UDim2.new(0.6, 0, 0, 25)
+statusLabel.Position = UDim2.new(0, 90, 0, 48)
+statusLabel.BackgroundTransparency = 1
+statusLabel.Text = "Online"
+statusLabel.TextColor3 = Color3.fromRGB(0, 200, 100)
+statusLabel.TextSize = 14
+statusLabel.Font = Enum.Font.Gotham
+statusLabel.TextXAlignment = Enum.TextXAlignment.Left
+statusLabel.Parent = TopBar
+
+-- Minimize button (replaces close button)
+local MinimizeBtn = Instance.new("TextButton")
+MinimizeBtn.Size = UDim2.new(0, 38, 0, 38)
+MinimizeBtn.Position = UDim2.new(1, -48, 0, 23)
+MinimizeBtn.BackgroundColor3 = Color3.fromRGB(70, 70, 90)
+MinimizeBtn.Text = "−"
+MinimizeBtn.TextColor3 = Color3.new(1,1,1)
+MinimizeBtn.TextSize = 24
+MinimizeBtn.Font = Enum.Font.GothamBold
+MinimizeBtn.Parent = TopBar
+Instance.new("UICorner", MinimizeBtn).CornerRadius = UDim.new(0, 10)
+
+MinimizeBtn.MouseButton1Click:Connect(function()
+    getgenv().UniversalHub.MenuVisible = false
+    MainFrame.Visible = false
+end)
+
+-- Tabs container
+local TabsFrame = Instance.new("Frame")
+TabsFrame.Size = UDim2.new(1, 0, 0, 48)
+TabsFrame.Position = UDim2.new(0, 0, 0, 85)
+TabsFrame.BackgroundTransparency = 1
+TabsFrame.Parent = MainFrame
+
+local TabButtons = {}
+local TabContents = {}
+local tabs = {"Main", "Aimbot", "Trolling", "Utility", "Support"}
+
+for i, tabName in ipairs(tabs) do
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(1/#tabs, 0, 1, 0)
+    btn.Position = UDim2.new((i-1)/#tabs, 0, 0, 0)
+    btn.BackgroundColor3 = Color3.fromRGB(35, 35, 42)
+    btn.Text = tabName
+    btn.TextColor3 = Color3.new(1,1,1)
+    btn.TextSize = 16
+    btn.Font = Enum.Font.GothamSemibold
+    btn.Parent = TabsFrame
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
+    TabButtons[i] = btn
+
+    local content = Instance.new("ScrollingFrame")
+    content.Size = UDim2.new(1, -20, 1, -145)
+    content.Position = UDim2.new(0, 10, 0, 135)
+    content.BackgroundTransparency = 1
+    content.ScrollBarThickness = 6
+    content.Visible = (i == 1)
+    content.Parent = MainFrame
+
+    local layout = Instance.new("UIListLayout")
+    layout.Padding = UDim.new(0, 12)
+    layout.SortOrder = Enum.SortOrder.LayoutOrder
+    layout.Parent = content
+
+    TabContents[i] = content
+end
+
+local function switchTab(index)
+    for i, content in ipairs(TabContents) do
+        content.Visible = (i == index)
+        TabButtons[i].BackgroundColor3 = (i == index) and Color3.fromRGB(0, 140, 255) or Color3.fromRGB(35, 35, 42)
+    end
+end
+
+for i, btn in ipairs(TabButtons) do
+    btn.MouseButton1Click:Connect(function()
+        switchTab(i)
+    end)
+end
+
+-- Helper to create toggle row with purple (off) and pink (on)
+local function CreateToggle(parent, text, default, callback, isFlight)
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(1, 0, 0, 55)
+    frame.BackgroundColor3 = Color3.fromRGB(35, 35, 42)
+    frame.Parent = parent
+    Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.68, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = "  " .. text
+    label.TextColor3 = Color3.new(1,1,1)
+    label.TextXAlignment = Enum.TextXAlignment.Left
+    label.TextSize = 17
+    label.Font = Enum.Font.Gotham
+    label.Parent = frame
+
+    local btn = Instance.new("TextButton")
+    btn.Size = UDim2.new(0, 100, 0, 40)
+    btn.Position = UDim2.new(0.74, 0, 0.5, -20)
+    -- new colors: off = purple, on = pink
+    btn.BackgroundColor3 = default and Color3.fromRGB(255, 105, 180) or Color3.fromRGB(128, 0, 128)
+    btn.Text = default and "ON" or "OFF"
+    btn.TextColor3 = Color3.new(1,1,1)
+    btn.TextSize = 17
+    btn.Font = Enum.Font.GothamBold
+    btn.Parent = frame
+    Instance.new("UICorner", btn).CornerRadius = UDim.new(0, 8)
+
+    local enabled = default
+    btn.MouseButton1Click:Connect(function()
+        enabled = not enabled
+        btn.Text = enabled and "ON" or "OFF"
+        btn.BackgroundColor3 = enabled and Color3.fromRGB(255, 105, 180) or Color3.fromRGB(128, 0, 128)
+        callback(enabled)
+    end)
+
+    if isFlight then flightToggleBtn = btn end
+    return btn
+end
+
+-- Helper to create slider row (value + textbox)
+local function CreateSlider(parent, labelText, minVal, maxVal, defaultValue, callback)
+    local frame = Instance.new("Frame")
+    frame.Size = UDim2.new(1, 0, 0, 65)
+    frame.BackgroundColor3 = Color3.fromRGB(35, 35, 42)
+    frame.Parent = parent
+    Instance.new("UICorner", frame).CornerRadius = UDim.new(0, 12)
+
+    local label = Instance.new("TextLabel")
+    label.Size = UDim2.new(0.5, 0, 1, 0)
+    label.BackgroundTransparency = 1
+    label.Text = "  " .. labelText .. ": " .. defaultValue
+    label.TextColor3 = Color3.new(1,1,1)
+    label.TextXAlignment = Enum.TextXAlignment.Left
+    label.TextSize = 17
+    label.Font = Enum.Font.Gotham
+    label.Parent = frame
+
+    local textBox = Instance.new("TextBox")
+    textBox.Size = UDim2.new(0, 120, 0, 40)
+    textBox.Position = UDim2.new(0.75, 0, 0.5, -20)
+    textBox.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+    textBox.Text = tostring(defaultValue)
+    textBox.TextColor3 = Color3.new(1,1,1)
+    textBox.TextSize = 16
+    textBox.Font = Enum.Font.Gotham
+    textBox.Parent = frame
+    Instance.new("UICorner", textBox).CornerRadius = UDim.new(0, 8)
+
+    textBox.FocusLost:Connect(function()
+        local val = tonumber(textBox.Text)
+        if val then
+            val = math.clamp(val, minVal, maxVal)
+            callback(val)
+            label.Text = "  " .. labelText .. ": " .. val
+            textBox.Text = tostring(val)
+        else
+            textBox.Text = tostring(defaultValue)
+        end
+    end)
+
+    return textBox
+end
+
+-- ========== POPULATE TABS ==========
+-- Main tab (1)
+local mainTab = TabContents[1]
+CreateToggle(mainTab, "👁️ ESP (Nametag + Outline)", false, function(s) getgenv().UniversalHub.ESP = s; updateESP() end)
+CreateToggle(mainTab, "🦘 Infinite Jump", false, function(s) getgenv().UniversalHub.InfiniteJump = s end)
+CreateToggle(mainTab, "✈️ Flight", false, function(s) getgenv().UniversalHub.Flight = s end, true)
+CreateToggle(mainTab, "🌀 NoClip", false, function(s) getgenv().UniversalHub.NoClip = s end)
+CreateToggle(mainTab, "⚡ Speed Boost", false, function(s) getgenv().UniversalHub.SpeedBoost = s end)
+CreateToggle(mainTab, "💤 Anti-AFK", false, function(s) getgenv().UniversalHub.AntiAFK = s end)
+
+-- Fly speed slider
+CreateSlider(mainTab, "✈️ Fly Speed", 20, 500, getgenv().UniversalHub.FlySpeed, function(val)
+    getgenv().UniversalHub.FlySpeed = val
+end)
+
+-- Speed boost slider
+CreateSlider(mainTab, "🏃 Walk Speed", 16, 250, getgenv().UniversalHub.SpeedValue, function(val)
+    getgenv().UniversalHub.SpeedValue = val
+end)
+
+-- Teleport to coordinates section REMOVED as requested
+
+-- Aimbot tab (2)
+local aimbotTab = TabContents[2]
+CreateToggle(aimbotTab, "🎯 Aimbot (Hold Right Mouse)", false, function(s) getgenv().UniversalHub.Aimbot = s end)
+CreateToggle(aimbotTab, "👥 Team Check (avoid teammates)", true, function(s) getgenv().UniversalHub.TeamCheck = s end)
+CreateToggle(aimbotTab, "FOV Circle", true, function(s) getgenv().UniversalHub.FOVCircle = s end)
+CreateSlider(aimbotTab, "🎯 Aimbot FOV", 1, 360, getgenv().UniversalHub.AimbotFOV, function(val) 
+    getgenv().UniversalHub.AimbotFOV = val
+    maxAimFOV = val
+end)
+
+-- Trolling tab (3)
+local trollingTab = TabContents[3]
+CreateToggle(trollingTab, "🌀 Teleport to Player (click target)", false, function(s) getgenv().UniversalHub.TeleportToPlayer = s end)
+CreateToggle(trollingTab, "💥 Explode Player (click target)", false, function(s) getgenv().UniversalHub.ExplodePlayer = s end)
+CreateToggle(trollingTab, "🔁 Loop Kill (click target)", false, function(s) getgenv().UniversalHub.LoopKill = s end)
+
+-- Utility tab (4)
+local utilityTab = TabContents[4]
+-- Admin Alerts toggle with notification
+CreateToggle(utilityTab, "🔔 Admin Alerts", true, function(s)
+    getgenv().UniversalHub.AdminAlerts = s
+    Notify("Admin Alerts", s and "Enabled" or "Disabled", 3)
+end)
+
+-- Player List panel (universal)
+local playerListSection = Instance.new("Frame")
+playerListSection.Size = UDim2.new(1, 0, 0, 240)
+playerListSection.BackgroundColor3 = Color3.fromRGB(35, 35, 42)
+playerListSection.Parent = utilityTab
+Instance.new("UICorner", playerListSection).CornerRadius = UDim.new(0, 12)
+
+local playerListTitle = Instance.new("TextLabel")
+playerListTitle.Size = UDim2.new(1, -20, 0, 30)
+playerListTitle.Position = UDim2.new(0, 10, 0, 10)
+playerListTitle.BackgroundTransparency = 1
+playerListTitle.Text = "👥 Player List (Name | Team | HP)"
+playerListTitle.TextColor3 = Color3.new(1, 1, 1)
+playerListTitle.TextSize = 14
+playerListTitle.Font = Enum.Font.GothamBold
+playerListTitle.TextXAlignment = Enum.TextXAlignment.Left
+playerListTitle.Parent = playerListSection
+
+playerListContainer = Instance.new("ScrollingFrame")
+playerListContainer.Size = UDim2.new(1, -20, 1, -50)
+playerListContainer.Position = UDim2.new(0, 10, 0, 40)
+playerListContainer.BackgroundTransparency = 1
+playerListContainer.ScrollBarThickness = 6
+playerListContainer.Parent = playerListSection
+
+local playerListLayout = Instance.new("UIListLayout", playerListContainer)
+playerListLayout.Padding = UDim.new(0, 6)
+playerListLayout.SortOrder = Enum.SortOrder.LayoutOrder
+
+local refreshButton = Instance.new("TextButton")
+refreshButton.Size = UDim2.new(0.4, 0, 0, 30)
+refreshButton.Position = UDim2.new(0.55, 0, 0, 10)
+refreshButton.BackgroundColor3 = Color3.fromRGB(0, 180, 140)
+refreshButton.TextColor3 = Color3.new(1, 1, 1)
+refreshButton.TextSize = 14
+refreshButton.Font = Enum.Font.GothamSemibold
+refreshButton.Text = "Refresh Players"
+refreshButton.Parent = playerListSection
+
+refreshButton.MouseButton1Click:Connect(updatePlayerListUI)
+
+-- Support tab (5)
+local supportTab = TabContents[5]
+local supportFrame = Instance.new("Frame", supportTab)
+supportFrame.Size = UDim2.new(1, 0, 0, 160)
+supportFrame.BackgroundColor3 = Color3.fromRGB(35, 35, 42)
+Instance.new("UICorner", supportFrame).CornerRadius = UDim.new(0, 12)
+local supportText = Instance.new("TextLabel", supportFrame)
+supportText.Size = UDim2.new(1, -20, 1, -20)
+supportText.Position = UDim2.new(0, 10, 0, 10)
+supportText.BackgroundTransparency = 1
+supportText.Text = "📢 Support\n\nDiscord Username: hbkvxncent\nDiscord Server: https://discord.globalstats.xyz\n\nThank you for using globalstats.xyz!"
+supportText.TextColor3 = Color3.new(1,1,1)
+supportText.TextSize = 15
+supportText.Font = Enum.Font.Gotham
+supportText.TextWrapped = true
+supportText.TextXAlignment = Enum.TextXAlignment.Left
+
+-- Initialize FOV circle
+updateFOVCircle()
+
+-- ========== FLOATING BUTTON ==========
+local ToggleBtn = Instance.new("TextButton")
+ToggleBtn.Size = UDim2.new(0, 60, 0, 60)
+ToggleBtn.Position = UDim2.new(0, 20, 0.5, -30)
+ToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 140, 255)
+ToggleBtn.Text = "🚔"
+ToggleBtn.TextSize = 28
+ToggleBtn.TextColor3 = Color3.new(1,1,1)
+ToggleBtn.Parent = ScreenGui
+Instance.new("UICorner", ToggleBtn).CornerRadius = UDim.new(1, 0)
+ToggleBtn.MouseButton1Click:Connect(function()
+    getgenv().UniversalHub.MenuVisible = not getgenv().UniversalHub.MenuVisible
+    MainFrame.Visible = getgenv().UniversalHub.MenuVisible
+end)
+
+-- ========== HOTKEYS ==========
+UserInputService.InputBegan:Connect(function(input, gp)
+    if gp then return end
+    if input.KeyCode == Enum.KeyCode.K then
+        getgenv().UniversalHub.MenuVisible = not getgenv().UniversalHub.MenuVisible
+        MainFrame.Visible = getgenv().UniversalHub.MenuVisible
+    end
+    if input.KeyCode == Enum.KeyCode.F then
+        getgenv().UniversalHub.Flight = not getgenv().UniversalHub.Flight
+        if flightToggleBtn then
+            local isOn = getgenv().UniversalHub.Flight
+            flightToggleBtn.Text = isOn and "ON" or "OFF"
+            -- update to new colors
+            flightToggleBtn.BackgroundColor3 = isOn and Color3.fromRGB(255, 105, 180) or Color3.fromRGB(128, 0, 128)
+        end
+    end
+end)
+
+-- ========== INFINITE JUMP ==========
+UserInputService.JumpRequest:Connect(function()
+    if getgenv().UniversalHub.InfiniteJump and LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("Humanoid") then
+        LocalPlayer.Character.Humanoid:ChangeState(Enum.HumanoidStateType.Jumping)
+    end
+end)
+
+-- ========== NO CLIP / SPEED / ANTI-AFK / FLIGHT STATE ENGINE ==========
+local lastAntiAFK = tick()
+local antiAFKInterval = 60
+local defaultWalkSpeed = 16
+local vel, gyro = nil, nil
+local flying = false
+
+local function updateNoClip()
+    local char = LocalPlayer.Character
+    if not char then return end
+    local noClip = getgenv().UniversalHub.NoClip
+    for _, part in ipairs(char:GetDescendants()) do
+        if part:IsA("BasePart") then
+            part.CanCollide = not noClip
+        end
+    end
+end
+
+local function updateSpeed()
+    local char = LocalPlayer.Character
+    if not char then return end
+    local hum = char:FindFirstChild("Humanoid")
+    if hum then
+        if getgenv().UniversalHub.SpeedBoost then
+            hum.WalkSpeed = getgenv().UniversalHub.SpeedValue
+        else
+            if hum.WalkSpeed ~= defaultWalkSpeed then
+                hum.WalkSpeed = defaultWalkSpeed
+            end
+        end
+    end
+end
+
+local function updateAntiAFK()
+    if not getgenv().UniversalHub.AntiAFK then
+        lastAntiAFK = tick()
+        return
+    end
+    if tick() - lastAntiAFK < antiAFKInterval then return end
+    lastAntiAFK = tick()
+    pcall(function()
+        if typeof(VirtualInput.SendKeyEvent) == "function" then
+            VirtualInput:SendKeyEvent(true, Enum.KeyCode.W, false, game)
+            task.wait(0.08)
+            VirtualInput:SendKeyEvent(false, Enum.KeyCode.W, false, game)
+        end
+    end)
+end
+
+local function updateFlight(dt)
+    local character = LocalPlayer.Character
+    if not character then
+        if flying then
+            flying = false
+        end
+        return
+    end
+
+    local root = character:FindFirstChild("HumanoidRootPart")
+    local hum = character:FindFirstChild("Humanoid")
+    if getgenv().UniversalHub.Flight and root and hum then
+        if hum then hum.PlatformStand = true end
+        local move = Vector3.new()
+        if UserInputService:IsKeyDown(Enum.KeyCode.W) then move += Camera.CFrame.LookVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.S) then move -= Camera.CFrame.LookVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.A) then move -= Camera.CFrame.RightVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.D) then move += Camera.CFrame.RightVector end
+        if UserInputService:IsKeyDown(Enum.KeyCode.Space) then move += Vector3.new(0, 1, 0) end
+        if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then move -= Vector3.new(0, 1, 0) end
+
+        if move.Magnitude < 0.1 then
+            move = Vector3.new(0, 0.5, 0)
+        else
+            move = move.Unit * getgenv().UniversalHub.FlySpeed
+        end
+
+        if not vel then
+            vel = Instance.new("BodyVelocity")
+            gyro = Instance.new("BodyGyro")
+            vel.MaxForce = Vector3.new(1e6, 1e6, 1e6)
+            gyro.MaxTorque = Vector3.new(1e5, 1e5, 1e5)
+            vel.Parent = root
+            gyro.Parent = root
+        end
+
+        vel.Velocity = move
+        gyro.CFrame = Camera.CFrame
+        flying = true
+    elseif flying then
+        if vel then vel:Destroy() end
+        if gyro then gyro:Destroy() end
+        vel, gyro = nil, nil
+        if hum then hum.PlatformStand = false end
+        flying = false
+    end
+end
+
+local function updatePlayerListUI()
+    if updatingPlayerList then return end
+    updatingPlayerList = true
+
+    if not playerListContainer then 
+        updatingPlayerList = false
+        return 
+    end
+
+    -- Clear all existing entries to prevent duplicates
+    for _, child in ipairs(playerListContainer:GetChildren()) do
+        if child:IsA("Frame") then
+            child:Destroy()
+        end
+    end
+    playerListEntries = {}
+
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer then
+            local health, maxHealth = getPlayerHealth(plr)
+            local text = (plr.Team and plr.Team.Name or "Neutral") .. " | " .. plr.Name .. " | " .. health .. "/" .. maxHealth
+
+            local row = Instance.new("Frame")
+            row.Size = UDim2.new(1, 0, 0, 40)
+            row.BackgroundColor3 = Color3.fromRGB(25, 25, 30)
+            row.BorderSizePixel = 0
+            row.Parent = playerListContainer
+            Instance.new("UICorner", row).CornerRadius = UDim.new(0, 8)
+
+            local avatarImage = Instance.new("ImageLabel")
+            avatarImage.Size = UDim2.new(0, 30, 0, 30)
+            avatarImage.Position = UDim2.new(0.02, 0, 0.5, -15)
+            avatarImage.BackgroundTransparency = 1
+            pcall(function()
+                local avatarUrl = Players:GetUserThumbnailAsync(plr.UserId, Enum.ThumbnailType.HeadShot, Enum.ThumbnailSize.Size420x420)
+                if avatarUrl and avatarUrl ~= "" then
+                    avatarImage.Image = avatarUrl
+                else
+                    avatarImage.Image = "rbxassetid://0" -- fallback to transparent
+                end
+            end)
+            avatarImage.Parent = row
+            Instance.new("UICorner", avatarImage).CornerRadius = UDim.new(1, 0)
+
+            local nameLabel = Instance.new("TextLabel")
+            nameLabel.Name = "NameLabel"
+            nameLabel.Size = UDim2.new(0.45, 0, 1, 0)
+            nameLabel.BackgroundTransparency = 1
+            nameLabel.Text = text
+            nameLabel.TextColor3 = Color3.new(1, 1, 1)
+            nameLabel.TextSize = 14
+            nameLabel.Font = Enum.Font.Gotham
+            nameLabel.TextXAlignment = Enum.TextXAlignment.Left
+            nameLabel.Position = UDim2.new(0.12, 0, 0, 0)
+            nameLabel.Parent = row
+
+            local teleportBtn = Instance.new("TextButton")
+            teleportBtn.Size = UDim2.new(0.2, 0, 0.7, 0)
+            teleportBtn.Position = UDim2.new(0.58, 0, 0.15, 0)
+            teleportBtn.BackgroundColor3 = Color3.fromRGB(0, 140, 255)
+            teleportBtn.TextColor3 = Color3.new(1, 1, 1)
+            teleportBtn.TextSize = 14
+            teleportBtn.Font = Enum.Font.GothamSemibold
+            teleportBtn.Text = "Teleport"
+            teleportBtn.Parent = row
+
+            teleportBtn.MouseButton1Click:Connect(function()
+                local ok = teleportToPlayer(plr)
+                if ok then
+                    Notify("Teleport", "Teleported to " .. plr.Name, 2)
+                else
+                    Notify("Teleport", "Failed to teleport to " .. plr.Name, 2)
+                end
+            end)
+
+            local followBtn = Instance.new("TextButton")
+            followBtn.Size = UDim2.new(0.15, 0, 0.7, 0)
+            followBtn.Position = UDim2.new(0.80, 0, 0.15, 0)
+            followBtn.BackgroundColor3 = Color3.fromRGB(255, 105, 180)
+            followBtn.TextColor3 = Color3.new(1, 1, 1)
+            followBtn.TextSize = 14
+            followBtn.Font = Enum.Font.GothamSemibold
+            followBtn.Text = "Select"
+            followBtn.Parent = row
+
+            followBtn.MouseButton1Click:Connect(function()
+                selectedPlayer = plr
+                Notify("Player Select", "Selected " .. plr.Name, 2)
+            end)
+
+            playerListEntries[plr] = row
+        end
+    end
+
+    updatingPlayerList = false
+end
+
+RunService.Heartbeat:Connect(function(dt)
+    updateNoClip()
+    updateSpeed()
+    updateAntiAFK()
+    updateFlight(dt)
+    if tick() - lastPlayerListUpdate > 1 then
+        updatePlayerListUI()
+        lastPlayerListUpdate = tick()
+    end
+    updateESP()
+    updateFOVCircle()
+    updateStickFigurePositions()
+end)
+
+-- Handle character changes cleanly
+LocalPlayer.CharacterAdded:Connect(function()
+    task.wait(0.5)
+    updateNoClip()
+    updateSpeed()
+end)
+
+local function onPlayerRemoved(plr)
+    if espNametags[plr] then
+        espNametags[plr]:Destroy()
+        espNametags[plr] = nil
+    end
+    if espHighlights[plr] then
+        espHighlights[plr]:Destroy()
+        espHighlights[plr] = nil
+    end
+    if espStickFigures[plr] then
+        for _, line in ipairs(espStickFigures[plr].lines) do
+            line:Remove()
+        end
+        espStickFigures[plr] = nil
+    end
+end
+
+Players.PlayerRemoving:Connect(onPlayerRemoved)
+
+Players.PlayerAdded:Connect(function(plr)
+    plr.CharacterAdded:Connect(function()
+        if getgenv().UniversalHub.ESP then
+            createNametag(plr)
+            if getgenv().UniversalHub.ESPMode == "Highlight" then
+                createHighlight(plr)
+            elseif getgenv().UniversalHub.ESPMode == "StickFigure" then
+                createStickFigure(plr)
+            end
+        end
+    end)
+end)
+
+-- ========== ADMIN ALERTS & NOTIFICATION SYSTEM ==========
+-- Listen for chat messages that may indicate admin activity
+local function onChatMessage(msg)
+    if not getgenv().UniversalHub.AdminAlerts then return end
+    local lowerMsg = string.lower(msg)
+    local keywords = {"kick", "ban", "admin", "owner", "moderator", "you have been kicked", "you have been banned"}
+    for _, kw in ipairs(keywords) do
+        if string.find(lowerMsg, kw) then
+            Notify("⚠️ Admin Alert", "Possible admin action detected: " .. msg, 8)
+            break
+        end
+    end
+end
+
+-- Listen for local player being kicked or banned
+local function onPlayerRemoving(plr)
+    if plr == LocalPlayer then
+        Notify("❌ You have been kicked/banned!", "The server removed you.", 5)
+    end
+end
+
+-- Hook into chat (universal method)
+local function hookChat()
+    pcall(function()
+        local chatService = game:GetService("TextChatService")
+        if chatService then
+            local chatChannel = chatService:WaitForChild("TextChannels"):WaitForChild("RBXGeneral")
+            chatChannel.MessageReceived:Connect(function(message)
+                if message.Text then
+                    onChatMessage(message.Text)
+                end
+            end)
+        else
+            -- fallback for legacy chat
+            local PlayersChat = game:GetService("Players").LocalPlayer.PlayerGui:FindFirstChild("Chat")
+            if PlayersChat then
+                local frame = PlayersChat:FindFirstChild("Frame")
+                if frame then
+                    frame.DescendantAdded:Connect(function(desc)
+                        if desc:IsA("TextLabel") and desc.Name == "ChatMessage" then
+                            onChatMessage(desc.Text)
+                        end
+                    end)
+                end
+            end
+        end
+    end)
+end
+
+hookChat()
+Players.PlayerRemoving:Connect(onPlayerRemoving)
+
+-- Initialize ESP for existing players
+for _, plr in ipairs(Players:GetPlayers()) do
+    if plr ~= LocalPlayer and plr.Character then
+        if getgenv().UniversalHub.ESP then
+            createNametag(plr)
+            if getgenv().UniversalHub.ESPMode == "Highlight" then
+                createHighlight(plr)
+            elseif getgenv().UniversalHub.ESPMode == "StickFigure" then
+                createStickFigure(plr)
+            end
+        end
+    end
+end
+
+-- ========== AIMBOT (Right Mouse) ==========
+local lastTrigger = 0
+local triggerInterval = 0.1
+local maxAimDist = 99999
+local aimConn = nil
+
+local function getEnemyPlayers()
+    local enemies = {}
+    for _, plr in ipairs(Players:GetPlayers()) do
+        if plr ~= LocalPlayer and plr.Character then
+            if getgenv().UniversalHub.TeamCheck then
+                local team1 = LocalPlayer.Team
+                local team2 = plr.Team
+                if team1 and team2 and team1 == team2 then
+                    continue
+                end
+            end
+            table.insert(enemies, plr)
+        end
+    end
+    return enemies
+end
+
+local function performAimbot()
+    local closestPart = nil
+    local shortest = math.huge
+    for _, plr in ipairs(getEnemyPlayers()) do
+        local parts = {"Head", "HumanoidRootPart", "UpperTorso", "Torso"}
+        for _, partName in ipairs(parts) do
+            local part = plr.Character:FindFirstChild(partName)
+            if part then
+                local dist = (part.Position - Camera.CFrame.Position).Magnitude
+                if dist < shortest and dist < maxAimDist then
+                    local direction = part.Position - Camera.CFrame.Position
+                    local angle = math.deg(math.acos(math.clamp(Camera.CFrame.LookVector:Dot(direction.Unit), -1, 1)))
+                    if angle <= getgenv().UniversalHub.AimbotFOV then
+                        local rayParams = RaycastParams.new()
+                        rayParams.FilterDescendantsInstances = {LocalPlayer.Character}
+                        rayParams.FilterType = Enum.RaycastFilterType.Blacklist
+                        local result = workspace:Raycast(Camera.CFrame.Position, direction, rayParams)
+                        if not result or (result.Instance and result.Instance:IsDescendantOf(plr.Character)) then
+                            shortest = dist
+                            closestPart = part
+                        end
+                    end
+                end
+            end
+        end
+    end
+    if closestPart then
+        local targetPos = closestPart.Position + (closestPart.Velocity * 0.12)
+        Camera.CFrame = CFrame.lookAt(Camera.CFrame.Position, targetPos)
+    end
+end
+
+UserInputService.InputBegan:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if getgenv().UniversalHub.Aimbot and input.UserInputType == Enum.UserInputType.MouseButton2 then
+        if aimConn then aimConn:Disconnect() end
+        aimConn = RunService.RenderStepped:Connect(performAimbot)
+    end
+end)
+
+UserInputService.InputEnded:Connect(function(input, gameProcessed)
+    if gameProcessed then return end
+    if input.UserInputType == Enum.UserInputType.MouseButton2 and aimConn then
+        aimConn:Disconnect()
+        aimConn = nil
+    end
+end)
+
+-- ========== TROLLING FEATURES ==========
+local selectedTarget = nil
+local function getMouseTarget()
+    local mouse = LocalPlayer:GetMouse()
+    local hit = mouse.Target
+    if hit and hit.Parent and hit.Parent:FindFirstChild("Humanoid") then
+        return hit.Parent
+    end
+    return nil
+end
+
+UserInputService.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.MouseButton1 then
+        local targetChar = getMouseTarget()
+        if targetChar then
+            local plr = Players:GetPlayerFromCharacter(targetChar)
+            if plr and plr ~= LocalPlayer then
+                selectedTarget = plr
+                if getgenv().UniversalHub.TeleportToPlayer then
+                    local root = LocalPlayer.Character and LocalPlayer.Character:FindFirstChild("HumanoidRootPart")
+                    local targetRoot = targetChar:FindFirstChild("HumanoidRootPart")
+                    if root and targetRoot then
+                        root.CFrame = targetRoot.CFrame + Vector3.new(0, 2, 0)
+                    end
+                elseif getgenv().UniversalHub.ExplodePlayer then
+                    local part = targetChar:FindFirstChild("HumanoidRootPart")
+                    if part then
+                        local explosion = Instance.new("Explosion")
+                        explosion.Position = part.Position
+                        explosion.Parent = workspace
+                        explosion.Hit:Connect(function(hitPart)
+                            if hitPart.Parent == targetChar then
+                                hitPart:BreakJoints()
+                            end
+                        end)
+                    end
+                elseif getgenv().UniversalHub.LoopKill then
+                    local loopConn
+                    loopConn = RunService.Heartbeat:Connect(function()
+                        if targetChar and targetChar.Parent and targetChar:FindFirstChild("Humanoid") then
+                            targetChar.Humanoid.Health = 0
+                        else
+                            loopConn:Disconnect()
+                        end
+                    end)
+                end
+            end
+        end
+    end
+end)
+
+print("✅ globalstats.xyz | Universal Script loaded!")
+print("Press K → Menu | Press F → Flight")
+print("Hold Right Mouse → Aimbot (team-check enabled)")
+print("Minimize button in top bar → hides menu")
+print("Resize by dragging bottom-right corner")
