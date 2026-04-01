@@ -99,7 +99,8 @@ end
 -- ========== MODERN UI CREATION ==========
 local ScreenGui = Instance.new("ScreenGui")
 ScreenGui.ResetOnSpawn = false
-ScreenGui.Parent = LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.Parent = game:GetService("CoreGui") -- Changed for better compatibility with executors
 
 -- FOV circle overlay (aimbot)
 local fovGui = Instance.new("Frame")
@@ -146,31 +147,43 @@ local espHighlights = {}
 local espNametags = {}
 local espStickFigures = {}
 
-local function createNametag(player)
-    if espNametags[player] then return end
-    local char = player.Character
-    if not char then return end
-    local head = char:FindFirstChild("Head")
-    if not head then return end
+local function getESPColor(player)
+    local placeId = game.PlaceId
+    if placeId == 606849621 then -- Jailbreak
+        if player.Team then
+            if player.Team.Name == "Police" then
+                return Color3.fromRGB(0, 0, 255) -- blue for cops
+            elseif player.Team.Name == "Prisoner" then
+                return Color3.fromRGB(255, 165, 0) -- orange for prisoners
+            else
+                return Color3.fromRGB(255, 0, 0) -- red for criminals
+            end
+        else
+            return Color3.fromRGB(255, 0, 0) -- red
+        end
+    elseif placeId == 155615604 then -- Prison Life
+        if player.Team then
+            if player.Team.Name == "Guards" then
+                return Color3.fromRGB(0, 0, 255) -- blue for guards/cops
+            elseif player.Team.Name == "Inmates" then
+                return Color3.fromRGB(255, 165, 0) -- orange for inmates
+            elseif player.Team.Name == "Criminals" then
+                return Color3.fromRGB(255, 0, 0) -- red for criminals
+            else
+                return Color3.fromRGB(255, 0, 0) -- red
+            end
+        else
+            return Color3.fromRGB(255, 0, 0) -- red
+        end
+    else
+        return Color3.fromRGB(255, 0, 0) -- red for other games
+    end
+end
 
-    local billboard = Instance.new("BillboardGui")
-    billboard.Adornee = head
-    billboard.Size = UDim2.new(0, 200, 0, 50)
-    billboard.StudsOffset = Vector3.new(0, 2, 0)
-    billboard.AlwaysOnTop = true
-    billboard.Parent = ScreenGui
-
-    local textLabel = Instance.new("TextLabel")
-    textLabel.Size = UDim2.new(1, 0, 1, 0)
-    textLabel.BackgroundTransparency = 1
-    textLabel.Text = player.Name
-    textLabel.TextColor3 = Color3.new(1, 1, 1)
-    textLabel.TextSize = 16
-    textLabel.Font = Enum.Font.GothamBold
-    textLabel.TextStrokeTransparency = 0.5
-    textLabel.Parent = billboard
-
-    espNametags[player] = billboard
+local function setHighlightColor(player, highlight)
+    local color = getESPColor(player)
+    highlight.FillColor = color
+    highlight.OutlineColor = color
 end
 
 local function createHighlight(player)
@@ -180,13 +193,12 @@ local function createHighlight(player)
 
     local highlight = Instance.new("Highlight")
     highlight.Adornee = char
-    highlight.FillColor = Color3.new(1, 0, 0)
-    highlight.OutlineColor = Color3.new(1, 0, 0)
-    highlight.FillTransparency = 0.5
+    highlight.FillTransparency = 0.3
     highlight.OutlineTransparency = 0
     highlight.Parent = char
 
     espHighlights[player] = highlight
+    setHighlightColor(player, highlight)
 end
 
 local function createStickFigure(player)
@@ -262,6 +274,33 @@ local function createStickFigure(player)
     espStickFigures[player] = {parts = parts, lines = lines}
 end
 
+local function createNametag(player)
+    if espNametags[player] then return end
+    local char = player.Character
+    if not char then return end
+    local head = char:FindFirstChild("Head")
+    if not head then return end
+
+    local billboard = Instance.new("BillboardGui")
+    billboard.Adornee = head
+    billboard.Size = UDim2.new(0, 120, 0, 30)
+    billboard.StudsOffset = Vector3.new(0, 2, 0)
+    billboard.AlwaysOnTop = true
+    billboard.Parent = ScreenGui
+
+    local textLabel = Instance.new("TextLabel")
+    textLabel.Size = UDim2.new(1, 0, 1, 0)
+    textLabel.BackgroundTransparency = 1
+    textLabel.Text = player.Name
+    textLabel.TextColor3 = Color3.new(1, 1, 1)
+    textLabel.TextSize = 14
+    textLabel.Font = Enum.Font.GothamBold
+    textLabel.TextStrokeTransparency = 0.5
+    textLabel.Parent = billboard
+
+    espNametags[player] = billboard
+end
+
 local function updateESP()
     if not getgenv().UniversalHub.ESP then
         -- Remove all ESP
@@ -308,6 +347,7 @@ local function updateESP()
                 createNametag(player)
                 if getgenv().UniversalHub.ESPMode == "Highlight" then
                     createHighlight(player)
+                    setHighlightColor(player, espHighlights[player])
                     -- Remove stick figure if exists
                     if espStickFigures[player] then
                         for _, line in ipairs(espStickFigures[player].lines) do
@@ -429,6 +469,7 @@ MainFrame.BackgroundTransparency = 0.08
 MainFrame.Active = true
 MainFrame.Draggable = true
 MainFrame.Visible = true
+MainFrame.ZIndex = 10
 MainFrame.Parent = ScreenGui
 Instance.new("UICorner", MainFrame).CornerRadius = UDim.new(0, 16)
 
@@ -790,6 +831,7 @@ ToggleBtn.BackgroundColor3 = Color3.fromRGB(0, 140, 255)
 ToggleBtn.Text = "🚔"
 ToggleBtn.TextSize = 28
 ToggleBtn.TextColor3 = Color3.new(1,1,1)
+ToggleBtn.ZIndex = 20
 ToggleBtn.Parent = ScreenGui
 Instance.new("UICorner", ToggleBtn).CornerRadius = UDim.new(1, 0)
 ToggleBtn.MouseButton1Click:Connect(function()
